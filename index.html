@@ -5,32 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Irfan Dwitama | Profil</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animasi Pop-Up Halus */
+    .btn-pop:hover {
+      transform: scale(1.03) translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
+    }
+  </style>
 </head>
-<body class="bg-neutral-900 text-neutral-100 flex items-center justify-center min-h-screen p-4 font-sans">
-  <div class="max-w-md w-full text-center space-y-6 bg-neutral-800/60 p-8 rounded-2xl border border-neutral-700/50 shadow-xl backdrop-blur-sm">
-    <!-- Inisial Profil -->
-    <div class="w-24 h-24 mx-auto rounded-full bg-neutral-700 flex items-center justify-center text-3xl font-bold text-neutral-200 border-2 border-neutral-600">
-      ID
+<body class="bg-blue-50 text-neutral-800 flex items-center justify-center min-h-screen p-4 font-sans antialiased">
+  <div class="max-w-md w-full text-center space-y-8 bg-white p-10 rounded-3xl border border-blue-100 shadow-xl">
+    
+    <!-- Bagian FOTO GUA -->
+    <div class="relative w-32 h-32 mx-auto">
+      <!-- GANTI LINK DI BAWAH INI DENGAN LINK FOTO LU -->
+      <img src="https://i.pravatar.cc/150?u=irfandwitama" alt="Muhammad Irfan Dwitama" class="w-full h-full rounded-full object-cover border-4 border-blue-100 shadow-inner">
+      <!-- Variasi Lingkaran Hiasan Biru -->
+      <div class="absolute inset-0 rounded-full border-2 border-blue-200 scale-110 opacity-70"></div>
     </div>
     
     <!-- Info Profil -->
-    <div class="space-y-2">
-      <h1 class="text-2xl font-bold tracking-tight">Halo, Saya Muhammad Irfan Dwitama</h1>
-      <p class="text-neutral-400 text-sm leading-relaxed">
-        Selamat datang di ruang digital saya. Kenali lebih dekat karya, aktivitas, dan media sosial saya melalui tautan di bawah.
+    <div class="space-y-3">
+      <h1 class="text-3xl font-extrabold tracking-tighter text-blue-950">Muhammad Irfan Dwitama</h1>
+      <p class="text-neutral-600 text-base font-normal leading-relaxed max-w-sm mx-auto">
+        Welcome to my digital corner. Connect with me through my social channels below.
       </p>
     </div>
 
-    <!-- Tautan Media Sosial -->
-    <div class="space-y-3 pt-2">
-      <a href="https://www.instagram.com/mirfanndete" target="_blank" class="block w-full py-3 px-4 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded-xl transition-all border border-neutral-700 font-medium hover:border-neutral-500 shadow-sm">
+    <!-- Tautan Media Sosial - TEMA BIRU TERANG + POP-UP -->
+    <div class="space-y-4 pt-4">
+      <a href="https://www.instagram.com/mirfanndete" target="_blank" class="btn-pop block w-full py-4 px-6 bg-white text-blue-700 rounded-xl transition-all duration-300 border border-blue-200 font-semibold text-lg hover:bg-blue-100 hover:border-blue-300">
         Instagram
       </a>
-      <a href="https://www.linkedin.com/in/muhammad-irfan-dwitama-b941a5337" target="_blank" class="block w-full py-3 px-4 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded-xl transition-all border border-neutral-700 font-medium hover:border-neutral-500 shadow-sm">
+      <a href="https://www.linkedin.com/in/muhammad-irfan-dwitama-b941a5337" target="_blank" class="btn-pop block w-full py-4 px-6 bg-white text-blue-700 rounded-xl transition-all duration-300 border border-blue-200 font-semibold text-lg hover:bg-blue-100 hover:border-blue-300">
         LinkedIn
       </a>
-      <a href="mailto:muhirfandt55@gmail.com" class="block w-full py-3 px-4 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded-xl transition-all border border-neutral-700 font-medium hover:border-neutral-500 shadow-sm">
-        Kirim Pesan Email
+      <!-- Tombol Utama Biru Terang -->
+      <a href="mailto:muhirfandt55@gmail.com" class="btn-pop block w-full py-4 px-6 bg-blue-600 text-white rounded-xl transition-all duration-300 border border-blue-700 font-bold text-lg hover:bg-blue-700 hover:shadow-lg">
+        Contact via Email
       </a>
     </div>
   </div>
