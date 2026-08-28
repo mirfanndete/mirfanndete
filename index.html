@@ -6,15 +6,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Muhammad Irfan Dwitama | Creative Portfolio</title>
+<title>DT — Writer, Communicator, Storyteller</title>
+
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
 
 
 <style>
@@ -23,151 +22,86 @@
 body{
 
 background:
-radial-gradient(circle at top left,#0ea5e9,transparent 35%),
-radial-gradient(circle at bottom right,#ec4899,transparent 35%),
-#020617;
+radial-gradient(circle at top left,#1e293b,transparent 35%),
+radial-gradient(circle at bottom right,#7c2d12,transparent 35%),
+#080808;
+
+font-family:Inter, sans-serif;
 
 }
 
 
-
-/* CARD */
 
 .card{
 
 background:
-rgba(255,255,255,.08);
+rgba(255,255,255,.06);
 
-backdrop-filter:
-blur(25px);
-
--webkit-backdrop-filter:
-blur(25px);
+backdrop-filter:blur(25px);
 
 border:
-1px solid rgba(255,255,255,.15);
+1px solid rgba(255,255,255,.12);
 
 box-shadow:
-0 25px 60px rgba(0,0,0,.35);
-
-transition:.4s;
-
-}
-
-
-.card:hover{
-
-transform:
-translateY(-7px);
-
-box-shadow:
-0 35px 80px rgba(14,165,233,.25);
+0 30px 80px rgba(0,0,0,.5);
 
 }
 
 
 
-/* BUTTON */
+.line{
 
-.btn{
-
-transition:.3s;
-
-}
-
-
-.btn:hover{
-
-transform:
-scale(1.05);
-
-}
-
-
-
-/* BADGE */
-
-.badge{
+height:1px;
 
 background:
-rgba(56,189,248,.15);
-
-border:
-1px solid rgba(56,189,248,.35);
+linear-gradient(
+90deg,
+transparent,
+#f59e0b,
+transparent
+);
 
 }
 
 
 
-/* SKILL */
+.tag{
 
-.skill{
+color:#fbbf24;
+
+border:1px solid rgba(251,191,36,.3);
 
 background:
-rgba(14,165,233,.15);
-
-border:
-1px solid rgba(56,189,248,.3);
-
-transition:.3s;
-
-}
-
-
-.skill:hover{
-
-background:#0284c7;
-
-transform:
-translateY(-4px);
+rgba(251,191,36,.1);
 
 }
 
 
 
-/* TYPING */
+.reveal{
 
-.typing{
-
-overflow:hidden;
-
-white-space:nowrap;
-
-border-right:
-3px solid white;
-
-animation:
-
-typing 4s steps(40),
-blink .8s infinite;
+transition:.5s;
 
 }
 
 
-@keyframes typing{
+.reveal:hover{
 
-from{
-
-width:0;
-
-}
-
-to{
-
-width:100%;
-
-}
+transform:translateY(-8px);
 
 }
 
 
-@keyframes blink{
 
-50%{
+.big-title{
 
-border-color:transparent;
+font-size:clamp(3rem,8vw,7rem);
 
-}
+line-height:.95;
+
+font-weight:900;
+
+letter-spacing:-3px;
 
 }
 
@@ -175,155 +109,135 @@ border-color:transparent;
 
 </style>
 
-
 </head>
 
 
 
-<body 
-class="
-text-white
-min-h-screen
-p-5
-md:p-10
-">
+
+<body class="text-white">
 
 
-
-<main 
-class="
+<main class="
 max-w-6xl
 mx-auto
-grid
-md:grid-cols-3
-gap-6
+px-6
+py-10
 ">
 
 
 
-<!-- PROFILE -->
+
+
+<!-- HERO -->
 
 
 <section
-
 data-aos="fade-up"
 
-data-tilt
-
 class="
-card
-rounded-[35px]
-p-8
-md:col-span-2
-">
-
-
-<div class="
+min-h-screen
 flex
 flex-col
-md:flex-row
-items-center
-gap-8
+justify-center
 ">
-
 
 
 <div class="
-p-[3px]
-rounded-[35px]
-bg-gradient-to-r
-from-cyan-400
-to-pink-500
+text-sm
+tracking-[5px]
+text-amber-400
+mb-8
 ">
 
-
-<img
-
-src="https://i.ibb.co.com/YFMQfwym/photo.jpg"
-
-class="
-w-40
-h-40
-rounded-[32px]
-object-cover
-"
-
->
-
+DT / DETE
 
 </div>
 
 
 
-
-<div class="
-text-center
-md:text-left
-">
+<h1 class="big-title">
 
 
-<span class="
-badge
-px-4
-py-2
-rounded-full
-text-sm
-text-cyan-300
-">
+I TELL STORIES.
 
-● Available For Collaboration
+<br>
 
-</span>
+I EXPLORE IDEAS.
 
+<br>
 
+I CONNECT PEOPLE.
 
-
-<h1 class="
-text-3xl
-md:text-5xl
-font-black
-mt-6
-">
-
-Muhammad Irfan Dwitama
 
 </h1>
 
 
 
-
 <p class="
-typing
-text-cyan-300
-font-semibold
-mt-3
-">
-
-Media Creator | Digital Storyteller
-
-</p>
-
-
-
-<p class="
+mt-8
+max-w-2xl
+text-xl
 text-slate-300
-mt-5
 leading-relaxed
 ">
 
-Mahasiswa Komunikasi dan Penyiaran Islam yang tertarik
-pada dunia media, kreativitas digital, storytelling,
-dan bagaimana sebuah ide dapat dikemas menjadi pesan
-yang memiliki makna.
+
+Mahasiswa Komunikasi dan Penyiaran Islam
+yang mengeksplorasi dunia melalui tulisan,
+media, percakapan, dan kreativitas.
+
 
 </p>
 
 
 
-</div>
+
+<div class="
+flex
+gap-4
+mt-10
+flex-wrap
+">
+
+
+<span class="
+tag
+px-5
+py-3
+rounded-full
+">
+
+Writer
+
+</span>
+
+
+<span class="
+tag
+px-5
+py-3
+rounded-full
+">
+
+Communicator
+
+</span>
+
+
+<span class="
+tag
+px-5
+py-3
+rounded-full
+">
+
+Storyteller
+
+</span>
 
 
 </div>
+
 
 
 </section>
@@ -332,61 +246,9 @@ yang memiliki makna.
 
 
 
-<!-- CV -->
 
 
-<a
-
-data-aos="fade-left"
-
-href="https://drive.google.com/drive/folders/1sMcKz0jlCJLPDK4zfAw0M3lad-Kl8lwb"
-
-target="_blank"
-
-class="
-card
-btn
-rounded-[35px]
-p-8
-flex
-flex-col
-justify-center
-items-center
-text-center
-">
-
-
-<div class="text-6xl">
-
-📂
-
-</div>
-
-
-<h2 class="
-font-bold
-text-xl
-mt-5
-">
-
-Career Journey
-
-</h2>
-
-
-<p class="
-text-sm
-text-cyan-300
-mt-3
-">
-
-View my portfolio & CV
-
-</p>
-
-
-</a>
-
+<div class="line my-20"></div>
 
 
 
@@ -397,22 +259,24 @@ View my portfolio & CV
 
 
 <section
-
 data-aos="fade-up"
 
 class="
-card
-rounded-[35px]
-p-8
+grid
+md:grid-cols-3
+gap-8
+">
+
+
+<div
+class="
 md:col-span-2
 ">
 
 
 <h2 class="
-text-cyan-300
-font-bold
-uppercase
-tracking-widest
+text-4xl
+font-black
 ">
 
 About Me
@@ -422,69 +286,89 @@ About Me
 
 
 <p class="
-mt-5
-text-slate-200
+mt-6
+text-slate-300
+text-lg
 leading-relaxed
 ">
 
+
 Saya percaya bahwa komunikasi bukan hanya tentang
-berbicara, tetapi tentang bagaimana sebuah pesan dapat
-dipahami, dirasakan, dan memberikan pengaruh bagi orang lain.
+menyampaikan pesan, tetapi tentang memahami manusia
+di balik sebuah cerita.
+
 
 </p>
 
 
 
 <p class="
-mt-4
-text-slate-200
+mt-5
+text-slate-300
+text-lg
 leading-relaxed
 ">
 
-Saya memiliki ketertarikan pada dunia media,
-konten digital, desain visual, dan proses kreatif
-dalam membangun sebuah cerita. Saya menikmati proses
-mempelajari hal baru, mengeksplorasi ide,
-serta mengubah gagasan sederhana menjadi sebuah karya.
+
+Sebagai mahasiswa Komunikasi dan Penyiaran Islam
+di UIN Raden Intan Lampung, saya terus mengeksplorasi
+bagaimana tulisan, media, dan percakapan dapat menjadi
+jembatan untuk menyampaikan ide dan membangun koneksi.
+
 
 </p>
 
 
+</div>
 
 
-<div class="
-mt-6
-bg-black/30
+
+
+<div class="card rounded-3xl p-6">
+
+
+<img
+src="https://i.ibb.co.com/YFMQfwym/photo.jpg"
+
+class="
 rounded-2xl
-p-5
-">
+w-full
+mb-6
+"
+>
 
 
-<h3 class="font-bold">
+<h3 class="font-bold text-xl">
 
-🏛️ Education
+Muhammad Irfan Dwitama
 
 </h3>
 
 
-<p class="
-text-cyan-300
-mt-2
-">
+<p class="text-amber-400 mt-2">
+
+Communication Student
+
+</p>
+
+
+<div class="mt-5 text-sm text-slate-300">
 
 UIN Raden Intan Lampung
 
-</p>
+<br>
 
+Communication & Broadcasting
 
-<p class="
-text-sm
-text-slate-300
-">
+<br>
 
-Communication and Islamic Broadcasting (KPI)
+Semester 5
 
-</p>
+<br>
+
+GPA 3.85
+
+</div>
 
 
 </div>
@@ -497,83 +381,160 @@ Communication and Islamic Broadcasting (KPI)
 
 
 
-<!-- PERSONALITY -->
+
+<div class="line my-20"></div>
 
 
-<section
 
-data-aos="fade-right"
 
-class="
-card
-rounded-[35px]
-p-8
-">
+
+
+<!-- JOURNEY -->
+
+
+<section data-aos="fade-up">
 
 
 <h2 class="
-text-cyan-300
-font-bold
+text-4xl
+font-black
+mb-10
 ">
 
-🌱 Personal Side
+My Journey
 
 </h2>
 
 
 
-<p class="
-mt-5
-text-slate-200
-leading-relaxed
+
+<div class="space-y-6">
+
+
+
+<div class="card rounded-3xl p-6">
+
+
+<span class="text-amber-400">
+
+2024
+
+</span>
+
+
+<h3 class="
+text-2xl
+font-bold
+mt-3
 ">
 
-Di luar aktivitas akademik dan kreativitas digital,
-saya menikmati hal-hal sederhana yang membantu saya
-memahami dunia lebih luas.
+Gebyar Pelajar Lampung
+
+</h3>
+
+
+<p class="text-slate-300 mt-2">
+
+Staff PSDM (Internal)
 
 </p>
 
 
+</div>
 
-<p class="
-mt-4
-text-slate-200
-leading-relaxed
+
+
+
+
+<div class="card rounded-3xl p-6">
+
+
+<span class="text-amber-400">
+
+2024 - Sekarang
+
+</span>
+
+
+<h3 class="
+text-2xl
+font-bold
+mt-3
 ">
 
-Saya percaya bahwa ide terbaik sering muncul dari
-pengalaman kecil, percakapan bermakna, dan rasa ingin
-tahu untuk terus belajar.
+Himpunan Mahasiswa Jurusan KPI
+
+</h3>
+
+
+<p class="text-slate-300 mt-2">
+
+Learning leadership, teamwork,
+and student organization.
 
 </p>
 
+
+</div>
+
+
+
+
+
+<div class="card rounded-3xl p-6">
+
+
+<span class="text-amber-400">
+
+2025
+
+</span>
+
+
+<h3 class="
+text-2xl
+font-bold
+mt-3
+">
+
+Broadcaster Academy RRI Bandar Lampung
+
+</h3>
+
+
+<p class="text-slate-300 mt-2">
+
+Content Media Baru (KMB)
+
+Exploring broadcasting,
+digital media, and storytelling.
+
+</p>
+
+
+</div>
+
+
+
+</div>
 
 
 </section>
-<!-- HOBBY & INTEREST -->
+<!-- WHAT I DO -->
+
+<div class="line my-20"></div>
 
 
-<section
-
-data-aos="fade-up"
-
-class="
-card
-rounded-[35px]
-p-8
-md:col-span-2
-">
+<section data-aos="fade-up">
 
 
 <h2 class="
-text-cyan-300
-font-bold
-uppercase
-tracking-widest
+text-4xl
+font-black
+mb-10
 ">
 
-Beyond Work
+What I Do
 
 </h2>
 
@@ -582,38 +543,43 @@ Beyond Work
 <div class="
 grid
 md:grid-cols-2
-gap-5
-mt-6
+gap-6
 ">
 
 
 
-<div class="
-bg-black/30
-rounded-2xl
-p-5
+<div class="card rounded-3xl p-7 reveal">
+
+
+<div class="text-4xl mb-5">
+
+✍️
+
+</div>
+
+
+<h3 class="
+text-2xl
+font-bold
 ">
 
-
-<h3 class="font-bold text-white">
-
-📚 Reading & Learning
+Writing
 
 </h3>
 
 
 <p class="
-text-sm
 text-slate-300
 mt-3
 leading-relaxed
 ">
 
-Saya menikmati membaca buku sebagai cara untuk
-memperluas perspektif dan memahami berbagai sudut
-pandang. Bagi saya, buku bukan hanya kumpulan halaman,
-tetapi ruang untuk berdialog dengan ide, pengalaman,
-dan pemikiran orang lain.
+Menuangkan ide, keresahan,
+dan pengamatan melalui artikel,
+opini, serta tulisan kreatif.
+
+Bagi saya, tulisan adalah cara
+untuk berdialog dengan dunia.
 
 </p>
 
@@ -624,33 +590,37 @@ dan pemikiran orang lain.
 
 
 
-<div class="
-bg-black/30
-rounded-2xl
-p-5
+<div class="card rounded-3xl p-7 reveal">
+
+
+<div class="text-4xl mb-5">
+
+🎙️
+
+</div>
+
+
+<h3 class="
+text-2xl
+font-bold
 ">
 
-
-<h3 class="font-bold text-white">
-
-☕ Coffee & Good Conversation
+Communication
 
 </h3>
 
 
 <p class="
-text-sm
 text-slate-300
 mt-3
 leading-relaxed
 ">
 
-Menikmati kopi sambil berbicara tentang ide,
-kehidupan, budaya, dan berbagai hal menarik adalah
-salah satu cara saya mendapatkan inspirasi.
-
-Saya percaya percakapan sederhana dapat membuka
-perspektif baru.
+Mengembangkan kemampuan
+public speaking, MC formal maupun
+non formal, broadcasting,
+dan membangun percakapan
+yang bermakna.
 
 </p>
 
@@ -661,31 +631,37 @@ perspektif baru.
 
 
 
-<div class="
-bg-black/30
-rounded-2xl
-p-5
+
+<div class="card rounded-3xl p-7 reveal">
+
+
+<div class="text-4xl mb-5">
+
+🎨
+
+</div>
+
+
+<h3 class="
+text-2xl
+font-bold
 ">
 
-
-<h3 class="font-bold text-white">
-
-💬 Loving Good Discourse
+Creative Media
 
 </h3>
 
 
 <p class="
-text-sm
 text-slate-300
 mt-3
 leading-relaxed
 ">
 
-Saya menyukai diskusi yang sehat dan bermakna.
-Bukan hanya untuk mencari siapa yang benar,
-tetapi untuk memahami alasan, pengalaman,
-dan cara berpikir yang berbeda.
+Mengeksplorasi desain grafis,
+poster, feed sosial media,
+dokumentasi, dan visual storytelling
+untuk menyampaikan sebuah pesan.
 
 </p>
 
@@ -696,30 +672,37 @@ dan cara berpikir yang berbeda.
 
 
 
-<div class="
-bg-black/30
-rounded-2xl
-p-5
+
+<div class="card rounded-3xl p-7 reveal">
+
+
+<div class="text-4xl mb-5">
+
+🎪
+
+</div>
+
+
+<h3 class="
+text-2xl
+font-bold
 ">
 
-
-<h3 class="font-bold text-white">
-
-🎬 Creative Exploration
+Event & Community
 
 </h3>
 
 
 <p class="
-text-sm
 text-slate-300
 mt-3
 leading-relaxed
 ">
 
-Saya tertarik mengeksplorasi dunia kreatif melalui
-desain, fotografi, storytelling, media digital,
-dan berbagai bentuk komunikasi visual.
+Senang mempelajari dunia event,
+konser, dan volunteer karena
+setiap acara memiliki cerita
+dan manusia di baliknya.
 
 </p>
 
@@ -737,45 +720,28 @@ dan berbagai bentuk komunikasi visual.
 
 
 
-<!-- FAVORITE THINGS -->
+<div class="line my-20"></div>
 
-<section
 
-data-aos="fade-up"
 
-class="
-card
-rounded-[35px]
-p-8
-md:col-span-3
-">
+
+
+
+
+<!-- IDEAS -->
+
+<section data-aos="fade-up">
 
 
 <h2 class="
-text-cyan-300
-font-bold
-uppercase
-tracking-widest
+text-4xl
+font-black
+mb-10
 ">
 
-✨ Favorite Things
+Things I Like To Explore
 
 </h2>
-
-
-
-<p class="
-text-slate-300
-mt-4
-max-w-3xl
-leading-relaxed
-">
-
-Hal-hal sederhana yang selalu menemani proses berpikir,
-belajar, dan menciptakan sesuatu.
-
-</p>
-
 
 
 
@@ -783,49 +749,49 @@ belajar, dan menciptakan sesuatu.
 grid
 md:grid-cols-4
 gap-5
-mt-6
 ">
 
 
 
+<div class="card rounded-3xl p-6">
 
 
-<div class="
-bg-black/30
-rounded-2xl
-p-5
-hover:bg-black/40
-transition
-">
+<h3 class="font-bold text-xl">
 
-
-<div class="text-4xl">
-
-📚
-
-</div>
-
-
-<h3 class="
-font-bold
-mt-4
-">
-
-Books
+📜 History
 
 </h3>
 
 
-<p class="
-text-sm
-text-slate-300
-mt-2
-leading-relaxed
-">
+<p class="text-slate-300 mt-3 text-sm">
 
-Membaca menjadi cara saya mengeksplorasi
-ide, memahami manusia, dan melihat dunia
-dari berbagai perspektif.
+Memahami masa lalu untuk
+melihat bagaimana dunia
+dibentuk hari ini.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card rounded-3xl p-6">
+
+
+<h3 class="font-bold text-xl">
+
+🌏 Social & Culture
+
+</h3>
+
+
+<p class="text-slate-300 mt-3 text-sm">
+
+Mengamati manusia,
+kebiasaan, budaya,
+dan perubahan sosial.
 
 </p>
 
@@ -836,44 +802,21 @@ dari berbagai perspektif.
 
 
 
+<div class="card rounded-3xl p-6">
 
 
-<div class="
-bg-black/30
-rounded-2xl
-p-5
-hover:bg-black/40
-transition
-">
+<h3 class="font-bold text-xl">
 
-
-<div class="text-4xl">
-
-☕
-
-</div>
-
-
-<h3 class="
-font-bold
-mt-4
-">
-
-Good Coffee
+🏛 Politics
 
 </h3>
 
 
-<p class="
-text-sm
-text-slate-300
-mt-2
-leading-relaxed
-">
+<p class="text-slate-300 mt-3 text-sm">
 
-Secangkir kopi dan suasana yang tenang
-sering menjadi ruang terbaik untuk berpikir,
-menulis, dan menemukan inspirasi baru.
+Mempelajari ide,
+kekuasaan, dan bagaimana
+keputusan memengaruhi publik.
 
 </p>
 
@@ -884,99 +827,26 @@ menulis, dan menemukan inspirasi baru.
 
 
 
+<div class="card rounded-3xl p-6">
 
 
-<div class="
-bg-black/30
-rounded-2xl
-p-5
-hover:bg-black/40
-transition
-">
+<h3 class="font-bold text-xl">
 
-
-<div class="text-4xl">
-
-💬
-
-</div>
-
-
-<h3 class="
-font-bold
-mt-4
-">
-
-Good Discourse
+✨ Lifestyle
 
 </h3>
 
 
-<p class="
-text-sm
-text-slate-300
-mt-2
-leading-relaxed
-">
+<p class="text-slate-300 mt-3 text-sm">
 
-Saya menikmati percakapan yang bermakna,
-bertukar gagasan, dan memahami perspektif
-berbeda dari orang lain.
+Melihat tren, gaya hidup,
+dan bagaimana generasi
+membangun identitas.
 
 </p>
 
 
 </div>
-
-
-
-
-
-
-
-<div class="
-bg-black/30
-rounded-2xl
-p-5
-hover:bg-black/40
-transition
-">
-
-
-<div class="text-4xl">
-
-🎧
-
-</div>
-
-
-<h3 class="
-font-bold
-mt-4
-">
-
-Music & Stories
-
-</h3>
-
-
-<p class="
-text-sm
-text-slate-300
-mt-2
-leading-relaxed
-">
-
-Menikmati musik, cerita, dan berbagai bentuk
-ekspresi kreatif yang memberikan warna
-dalam kehidupan sehari-hari.
-
-</p>
-
-
-</div>
-
-
 
 
 
@@ -984,86 +854,157 @@ dalam kehidupan sehari-hari.
 
 
 </section>
-<!-- SKILLS -->
 
 
-<section
 
-data-aos="fade-right"
 
-class="
-card
-rounded-[35px]
-p-8
-">
+
+
+
+<div class="line my-20"></div>
+
+
+
+
+
+
+
+<!-- BEYOND SCREEN -->
+
+
+<section data-aos="fade-up">
 
 
 <h2 class="
-text-cyan-300
-font-bold
+text-4xl
+font-black
+mb-10
 ">
 
-⚡ Skills & Interest
+Beyond The Screen
 
 </h2>
 
 
 
 <div class="
-flex
-flex-wrap
-gap-3
-mt-6
+grid
+md:grid-cols-2
+gap-6
 ">
 
 
-<span class="skill px-4 py-2 rounded-xl">
-
-Public Speaking
-
-</span>
 
 
-<span class="skill px-4 py-2 rounded-xl">
 
-Canva
-
-</span>
+<div class="card rounded-3xl p-7">
 
 
-<span class="skill px-4 py-2 rounded-xl">
+<h3 class="text-2xl font-bold">
 
-CapCut
+📚 Books
 
-</span>
-
-
-<span class="skill px-4 py-2 rounded-xl">
-
-Broadcasting
-
-</span>
+</h3>
 
 
-<span class="skill px-4 py-2 rounded-xl">
+<p class="text-slate-300 mt-4 leading-relaxed">
 
-Photography
+Saya menikmati membaca buku sebagai
+cara untuk memperluas perspektif.
 
-</span>
+Buku menjadi ruang untuk bertemu
+dengan pemikiran, pengalaman,
+dan cerita orang lain.
 
-
-<span class="skill px-4 py-2 rounded-xl">
-
-Content Creation
-
-</span>
+</p>
 
 
-<span class="skill px-4 py-2 rounded-xl">
+</div>
 
-Storytelling
 
-</span>
+
+
+
+
+<div class="card rounded-3xl p-7">
+
+
+<h3 class="text-2xl font-bold">
+
+☕
+
+Coffee & Conversation
+
+</h3>
+
+
+<p class="text-slate-300 mt-4 leading-relaxed">
+
+Saya percaya percakapan terbaik
+sering lahir dari suasana sederhana:
+kopi, waktu yang tenang,
+dan diskusi yang menarik.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card rounded-3xl p-7">
+
+
+<h3 class="text-2xl font-bold">
+
+💬 Good Discourse
+
+</h3>
+
+
+<p class="text-slate-300 mt-4 leading-relaxed">
+
+Saya menyukai diskusi yang tidak hanya
+mencari siapa yang benar, tetapi
+mencoba memahami mengapa seseorang
+memiliki pandangan tertentu.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card rounded-3xl p-7">
+
+
+<h3 class="text-2xl font-bold">
+
+🎮 Open World Games
+
+</h3>
+
+
+<p class="text-slate-300 mt-4 leading-relaxed">
+
+Menikmati game adventure open world
+seperti perjalanan kecil:
+menjelajah dunia, menemukan cerita,
+dan membuat pilihan sendiri.
+
+</p>
+
+
+</div>
+
+
 
 
 </div>
@@ -1073,6 +1014,102 @@ Storytelling
 
 
 
+
+
+
+<div class="line my-20"></div>
+
+
+
+
+
+
+<!-- MUSIC -->
+
+
+<section data-aos="fade-up"
+
+class="
+card
+rounded-[35px]
+p-10
+text-center
+">
+
+
+<h2 class="
+text-3xl
+font-black
+">
+
+🎧 Personal Soundtrack
+
+</h2>
+
+
+
+<p class="
+text-slate-300
+mt-5
+">
+
+Beberapa musik yang menemani perjalanan:
+
+</p>
+
+
+
+<div class="
+flex
+flex-wrap
+justify-center
+gap-3
+mt-7
+">
+
+
+<span class="tag px-5 py-3 rounded-full">
+The Adams
+</span>
+
+
+<span class="tag px-5 py-3 rounded-full">
+Korekayu
+</span>
+
+
+<span class="tag px-5 py-3 rounded-full">
+Olski
+</span>
+
+
+<span class="tag px-5 py-3 rounded-full">
+The Lantis
+</span>
+
+
+<span class="tag px-5 py-3 rounded-full">
+rumahsakit
+</span>
+
+
+<span class="tag px-5 py-3 rounded-full">
+The Jansen
+</span>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<div class="line my-20"></div>
 
 
 
@@ -1083,47 +1120,42 @@ Storytelling
 
 <section
 
-data-aos="fade-up"
-
 class="
 card
 rounded-[35px]
-p-8
-md:col-span-3
+p-10
 text-center
 ">
 
 
 <h2 class="
-text-cyan-300
-font-bold
+text-3xl
+font-black
 ">
 
-🌱 Personal Philosophy
+Personal Philosophy
 
 </h2>
 
 
 
 <p class="
-mt-6
-text-xl
-md:text-2xl
+text-2xl
 italic
 text-slate-200
+mt-8
 leading-relaxed
 ">
 
 
-"Keep learning, keep creating,
-and keep having meaningful conversations.
+"Everyone has a story.
 
-Because every person carries a story,
-and every idea deserves a space to be heard."
+Communication is the bridge
+that helps those stories
+to be heard."
 
 
 </p>
-
 
 
 </section>
@@ -1134,53 +1166,80 @@ and every idea deserves a space to be heard."
 
 
 
+<div class="line my-20"></div>
 
-<!-- SOCIAL -->
 
 
-<section
 
-data-aos="fade-up"
+
+
+
+<!-- CONTACT -->
+
+
+<section data-aos="fade-up"
 
 class="
-card
-rounded-[35px]
-p-8
-md:col-span-3
+text-center
+pb-10
 ">
 
 
 <h2 class="
-text-cyan-300
-font-bold
-mb-5
+text-4xl
+font-black
 ">
 
-🌐 Connect With Me
+Let's Connect
 
 </h2>
 
 
+<p class="
+text-slate-300
+mt-5
+text-lg
+">
+
+For collaboration,
+creative projects,
+or meaningful conversations.
+
+</p>
+
+
 
 <div class="
-grid
-md:grid-cols-4
+flex
+justify-center
 gap-4
+mt-8
+flex-wrap
 ">
 
 
 <a
-
-href="https://www.instagram.com/mirfanndete"
-
-target="_blank"
-
+href="opini.html"
 class="
-btn
+tag
+px-6
+py-3
+rounded-full
+">
+
+📖 Read My Thoughts
+
+</a>
+
+
+
+<a
+href="https://instagram.com/mirfanndete"
+class="
 bg-white/10
-rounded-xl
-p-4
-text-center
+px-6
+py-3
+rounded-full
 ">
 
 Instagram
@@ -1190,64 +1249,17 @@ Instagram
 
 
 <a
-
-href="https://www.linkedin.com/in/muhammad-irfan-dwitama-b941a5337"
-
-target="_blank"
-
-class="
-btn
-bg-white/10
-rounded-xl
-p-4
-text-center
-">
-
-LinkedIn
-
-</a>
-
-
-
-<a
-
-href="opini.html"
-
-class="
-btn
-bg-gradient-to-r
-from-slate-700
-to-slate-500
-rounded-xl
-p-4
-text-center
-">
-
-📖 Arsip Tulisan
-
-</a>
-
-
-
-
-<a
-
 href="https://wa.me/6285925775266"
-
-target="_blank"
-
 class="
-btn
 bg-green-600
-rounded-xl
-p-4
-text-center
+px-6
+py-3
+rounded-full
 ">
 
 WhatsApp
 
 </a>
-
 
 
 </div>
@@ -1261,24 +1273,22 @@ WhatsApp
 
 
 
-<footer
-
-class="
+<footer class="
 text-center
-text-white/50
-md:col-span-3
-py-8
+text-slate-500
+pb-10
 ">
 
 
-© 2026 Muhammad Irfan Dwitama
+© 2026 DT / Dete
 
 <br>
 
-Crafted with curiosity, creativity & conversation.
+Writer • Communicator • Storyteller
 
 
 </footer>
+
 
 
 
@@ -1290,47 +1300,223 @@ Crafted with curiosity, creativity & conversation.
 
 
 
-
-
 <script>
 
 
 AOS.init({
 
-duration:900,
+duration:1000,
 
 once:true
 
 });
 
 
-
-
-VanillaTilt.init(
-
-document.querySelectorAll("[data-tilt]"),
-
-{
-
-max:12,
-
-speed:400,
-
-glare:true,
-
-"max-glare":0.2
-
-}
-
-);
-
-
-
 </script>
-
 
 
 
 </body>
 
 </html>
+<!-- CREATIVE ARCHIVE -->
+
+
+<div class="line my-20"></div>
+
+
+
+<section data-aos="fade-up">
+
+
+<h2 class="
+text-4xl
+font-black
+mb-10
+">
+
+Creative Archive
+
+</h2>
+
+
+<p class="
+text-slate-300
+max-w-3xl
+leading-relaxed
+mb-8
+">
+
+Beberapa ruang kreatif yang pernah saya eksplorasi:
+mulai dari tulisan, media, desain, hingga pengalaman
+di balik sebuah acara.
+
+</p>
+
+
+
+
+<div class="
+grid
+md:grid-cols-3
+gap-6
+">
+
+
+
+
+
+<div class="
+card
+rounded-3xl
+p-7
+">
+
+
+<div class="text-4xl">
+
+✍️
+
+</div>
+
+
+<h3 class="
+text-2xl
+font-bold
+mt-5
+">
+
+Writing & Opinion
+
+</h3>
+
+
+<p class="
+text-slate-300
+mt-3
+text-sm
+leading-relaxed
+">
+
+Menulis artikel dan opini mengenai isu sosial,
+budaya, politik, serta fenomena yang dekat
+dengan kehidupan masyarakat.
+
+</p>
+
+
+<a
+href="opini.html"
+class="
+inline-block
+mt-5
+text-amber-400
+">
+
+Read My Thoughts →
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="
+card
+rounded-3xl
+p-7
+">
+
+
+<div class="text-4xl">
+
+🎙️
+
+</div>
+
+
+<h3 class="
+text-2xl
+font-bold
+mt-5
+">
+
+Broadcasting
+
+</h3>
+
+
+<p class="
+text-slate-300
+mt-3
+text-sm
+leading-relaxed
+">
+
+Mengembangkan pengalaman dalam dunia
+broadcasting melalui Broadcaster Academy
+RRI Bandar Lampung divisi Konten Media Baru.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="
+card
+rounded-3xl
+p-7
+">
+
+
+<div class="text-4xl">
+
+🎨
+
+</div>
+
+
+<h3 class="
+text-2xl
+font-bold
+mt-5
+">
+
+Visual Creation
+
+</h3>
+
+
+<p class="
+text-slate-300
+mt-3
+text-sm
+leading-relaxed
+">
+
+Membuat desain visual seperti poster,
+feed media sosial, dokumentasi acara,
+dan kebutuhan komunikasi kreatif.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
