@@ -1,140 +1,978 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arsip Opini | Muhammad Irfan Dwitama</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .glass-card-solid {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arsip Opini | Muhammad Irfan Dwitama</title>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link 
+href="https://unpkg.com/aos@next/dist/aos.css"
+rel="stylesheet">
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+
+<style>
+
+
+body{
+
+background:
+radial-gradient(circle at top left,#0284c7,transparent 35%),
+radial-gradient(circle at bottom right,#7c3aed,transparent 35%),
+#020617;
+
+}
+
+
+/* Glass */
+
+.glass{
+
+background:
+rgba(15,23,42,.65);
+
+backdrop-filter:
+blur(25px);
+
+-webkit-backdrop-filter:
+blur(25px);
+
+
+border:
+1px solid rgba(255,255,255,.12);
+
+
+box-shadow:
+0 25px 80px rgba(0,0,0,.35);
+
+}
+
+
+
+/* Floating */
+
+.blob{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(80px);
+
+opacity:.35;
+
+animation:
+float 8s infinite ease-in-out;
+
+}
+
+
+@keyframes float{
+
+50%{
+
+transform:
+translateY(-40px);
+
+}
+
+}
+
+
+
+
+/* progress */
+
+
+.progress{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+height:4px;
+
+background:
+linear-gradient(90deg,#38bdf8,#a855f7);
+
+z-index:99;
+
+width:0%;
+
+}
+
+
+
+
+/* article */
+
+.article p{
+
+margin-bottom:22px;
+
+line-height:1.9;
+
+color:#cbd5e1;
+
+font-size:1.05rem;
+
+text-align:justify;
+
+}
+
+
+.article a{
+
+color:#38bdf8;
+
+font-weight:600;
+
+}
+
+
+
+.quote{
+
+background:
+linear-gradient(
+135deg,
+rgba(14,165,233,.2),
+rgba(168,85,247,.15)
+);
+
+
+border-left:
+4px solid #38bdf8;
+
+
+}
+
+
+
+.tag{
+
+background:
+rgba(56,189,248,.15);
+
+border:
+1px solid rgba(56,189,248,.3);
+
+}
+
+
+
+</style>
+
+
 </head>
-<body class="bg-gradient-to-tr from-blue-900 via-indigo-900 to-slate-900 text-white min-h-screen p-4 md:p-8 font-sans antialiased flex flex-col items-center selection:bg-sky-500 selection:text-white">
 
-  <!-- Container Utama -->
-  <div class="max-w-3xl w-full space-y-10 mt-4 md:mt-10 mb-10">
-    
-    <!-- Tombol Kembali -->
-    <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl transition-all text-sm font-semibold text-sky-200 shadow-lg">
-      <span>←</span> Kembali ke Profil Utama
-    </a>
 
-    <!-- ==========================================
-         OPINI 1: TUNTUTAN NADIEM (YANG PALING BARU) 
-         ========================================== -->
-    <div class="glass-card-solid p-6 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      
-      <div class="space-y-4 relative z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-xs font-bold text-orange-300 uppercase tracking-widest">
-          Catatan Kritis Baru
-        </div>
-        <h1 class="text-3xl md:text-4xl font-black text-white leading-tight">
-          TUNTUTAN 18 TAHUN NADIEM MAKARIM: KEADILAN ATAU TEATER KRIMINALISASI?
-        </h1>
-        <p class="text-sm text-slate-400 font-medium">Ditulis oleh: DT (Muhammad Irfan Dwitama)</p>
-      </div>
 
-      <div class="mt-8 space-y-5 text-slate-300 leading-relaxed text-sm md:text-base text-justify">
-        <p>
-          Hukum seharusnya menjadi kompas bagi keadilan, bukan panggung untuk mengeksploitasi reputasi seseorang demi kepuasan publik semata. Namun, dalam kasus dugaan korupsi pengadaan Chromebook yang menjerat mantan Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi (Mendikbudristek) Nadiem Makarim, aroma "teater hukum" terasa lebih kuat daripada semangat penegakan hukum yang jernih. Angka tuntutan yang disodorkan Jaksa Penuntut Umum (JPU) seolah-olah mengaburkan batas antara pertanggungjawaban pidana dan upaya pemiskinan sistematis yang dipaksakan secara serampangan.
-        </p>
-        <p>
-          Dilansir dari <a href="https://www.cnnindonesia.com/nasional/20260514140343-12-1358610/poin-poin-tuntutan-jaksa-ke-nadiem-makarim-di-kasus-korupsi-chromebook" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">cnnindonesia.com</a>, poin-poin tuntutan Jaksa terhadap Nadiem mencapai angka yang sangat fantastis, yakni 18 tahun penjara. Bahkan, narasi yang berkembang di infobanknews.com menyebutkan angka hingga 27,5 tahun jika akumulasi hukuman tambahan diperhitungkan. Tuntutan ini memicu polemik besar karena dianggap sangat diskriminatif dan jomplang jika dibandingkan dengan para koruptor kelas kakap di sektor tambang atau korupsi komoditas lainnya yang seringkali hanya dituntut di bawah 10 tahun. Langkah Jaksa yang begitu agresif ini menciptakan persepsi bahwa Nadiem sedang dijadikan "martir" untuk menunjukkan taring hukum yang sebenarnya tidak proporsional.
-        </p>
-        <p>
-          Awal mula kasus ini berjalan dimulai ketika Kejaksaan Agung (Kejagung) melakukan penyelidikan intensif sejak Mei 2025. Kasus ini berfokus pada evaluasi anggaran tahun 2020-2022 terkait program digitalisasi pendidikan di sekolah-sekolah seluruh Indonesia. Setelah proses panjang selama hampir setahun untuk mengumpulkan bukti dan memeriksa saksi-saksi kunci, Nadiem akhirnya ditangkap dan ditetapkan sebagai tersangka pada akhir tahun 2025. Jaksa mendakwa adanya penyalahgunaan wewenang dalam penentuan vendor dan indikasi penggelembungan harga (mark-up) yang menyebabkan kerugian negara masif, meskipun selama persidangan bukti aliran dana langsung ke kantong pribadi Nadiem masih menjadi perdebatan yang sangat sengit.
-        </p>
-        <p>
-          Kejanggalan yang paling mengusik nalar publik adalah tuntutan uang pengganti sebesar Rp5,6 triliun. Mengutip berita dari <a href="https://www.metrotvnews.com/read/bmRCYVXZ-alasan-jaksa-tuntut-nadiem-18-tahun-penjara-dan-uang-ganti-rugi-rp5-6-t" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">metrotvnews.com</a> dan <a href="https://www.cnbcindonesia.com/tech/20260514120654-37-734937/dituntut-penjara-18-tahun-ini-kasus-dugaan-korupsi-nadiem-makarim" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">cnbcindonesia.com</a>, alasan Jaksa menyertakan angka tersebut dianggap tidak masuk akal karena mencampuradukkan kekayaan pribadi Nadiem yang sah dengan dugaan kerugian negara. Menghitung denda berdasarkan nilai kekayaan seseorang yang didapatkan jauh sebelum ia menjabat adalah sebuah preseden hukum yang berbahaya. Jaksa seolah-olah tidak sedang mencari pengembalian kerugian negara yang nyata, melainkan sedang melakukan upaya penyitaan harta pribadi tanpa dasar akuntansi forensik yang jelas.
-        </p>
-        <p>
-          Kondisi ini semakin terlihat rancu ketika kita menengok kesaksian para pakar di persidangan. Dilansir dari <a href="https://www.kompas.id/artikel/ahli-hukum-bersaksi-untuk-nadiem" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">kompas.id</a>, Prof Romli Atmasasmita selaku Guru Besar Hukum Pidana Universitas Padjajaran (UNPAD) menegaskan adanya kekeliruan fatal dalam penghitungan kerugian negara yang dilakukan JPU. Menurutnya, Jaksa tidak boleh menggunakan metode total loss jika barangnya benar-benar ada dan sudah didistribusikan ke sekolah. Senada dengan itu, Zainal Arifin Mochtar selaku Pakar Hukum Tata Negara Universitas Gadjah Mada (UGM) memperingatkan bahwa tuntutan ini adalah bentuk nyata kriminalisasi kebijakan. Baginya jaksa gagal membuktikan adanya niat jahat (mens rea) dan hanya berfokus pada kesalahan administratif yang dipaksakan menjadi tindak pidana.
-        </p>
-        <p>
-          Efek domino dari tuntutan yang tidak masuk akal ini pun mulai terasa sebagai ancaman masa depan bagi birokrasi kita. Berdasarkan ulasan di <a href="https://yoursay.suara.com/kolom/2026/05/14/151500/kasus-nadiem-makarim-bisa-jadi-alarm-bahaya-bagi-profesional-yang-ingin-mengabdi-pada-negara" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">yoursay.suara.com</a>, kasus ini menjadi "alarm bahaya" bagi para profesional dan teknokrat yang memiliki niat tulus untuk mengabdi pada negara. Jika setiap kegagalan sistemik atau hambatan inovasi di pemerintahan berakhir dengan ancaman bui puluhan tahun, maka orang-orang kompeten akan lebih memilih tetap berada di sektor swasta daripada harus mempertaruhkan sisa hidupnya di tangan penegak hukum yang menggunakan logika "pokoknya hukuman maksimal".
-        </p>
-        <p>
-          Menurut saya, pengabdian yang diniatkan untuk melakukan transformasi digital kini justru berbalas ancaman penjara belasan tahun dengan logika hukum yang terkesan sangat dipaksakan. Sangat sulit diterima akal sehat ketika Jaksa begitu gigih mengincar harta pribadi hasil kerja keras di sektor swasta melalui Initial Public Offering (IPO) atau penawaran umum perdana saham Gojek untuk menutupi angka kerugian proyek yang masih spekulatif. Langkah ini lebih terlihat seperti aksi "perampasan aset" yang dibalut jubah hukum daripada sebuah upaya penegakan keadilan yang murni dan objektif.
-        </p>
-        <p>
-          Jika setiap inovasi yang terbentur birokrasi selalu dihadapi dengan tuntutan maksimal yang bahkan lebih berat daripada hukuman gembong narkoba, maka jangan berharap lagi ada kaum profesional yang berani mengabdi di kursi pemerintahan. Majelis Hakim kini memegang tanggung jawab besar untuk membedakan mana keadilan yang faktual dan mana yang sekadar "drama" tuntutan demi memuaskan sentimen publik. Jika pada akhirnya pengabdian tulus harus berujung bui karena logika hukum yang cacat, maka bangsa ini sebenarnya sedang secara sadar menghancurkan jalan bagi lahirnya calon-calon pemimpin inovatif di masa depan.
-        </p>
-        
-        <div class="my-8 bg-sky-950/40 border border-sky-500/30 rounded-2xl p-5 shadow-inner">
-          <h3 class="text-sky-300 font-bold text-lg mb-4 flex items-center gap-2">
-            <span>⚖️</span> Poin Kesaksian Ahli
-          </h3>
-          <div class="space-y-4">
-            <div class="bg-slate-900/60 p-4 rounded-xl border border-white/5">
-              <span class="block font-bold text-white text-sm mb-1">1. Prof. Romli Atmasasmita</span>
-              <span class="text-slate-300 text-sm">Menyoroti kekeliruan Jaksa dalam menggunakan metode total loss dan ketidakadilan penyitaan aset pribadi hasil IPO Gojek.</span>
-            </div>
-            <div class="bg-slate-900/60 p-4 rounded-xl border border-white/5">
-              <span class="block font-bold text-white text-sm mb-1">2. Zainal Arifin Mochtar</span>
-              <span class="text-slate-300 text-sm">Menyoroti kriminalisasi kebijakan dan hilangnya unsur niat jahat (mens rea) yang berisiko mematikan inovasi profesional di pemerintahan.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Garis Pemisah Antar Tulisan -->
-    <div class="flex items-center justify-center py-4">
-      <div class="w-24 h-1 bg-white/10 rounded-full"></div>
-    </div>
+<body 
+class="
+text-white
+min-h-screen
+font-sans
+">
 
-    <!-- ==========================================
-         OPINI 2: KEMISKINAN STRUKTURAL (OPINI LAMA)
-         ========================================== -->
-    <div class="glass-card-solid p-6 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      
-      <div class="space-y-4 relative z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-xs font-bold text-red-300 uppercase tracking-widest">
-          Arsip Tulisan
-        </div>
-        <h2 class="text-2xl md:text-3xl font-black text-white leading-tight">
-          Kemiskinan Struktural dan Matinya Keadilan di Negeri Para Bedebah
-        </h2>
-        <p class="text-sm text-slate-400 font-medium">Ditulis oleh: Muhammad Irfan Dwitama</p>
-      </div>
 
-      <div class="mt-8 space-y-5 text-slate-300 leading-relaxed text-sm md:text-base text-justify">
-        <p>
-          Realitas kehidupan saat ini membuat rakyat berada di ambang kesusahan struktural. Di saat masyarakat kita hidup berdarah-darah banting tulang bekerja demi menghadapi harga bahan pokok yang terus meroket, lapangan pekerjaan yang sulit, para elite justru hidup bergelimang harta. Mereka yang duduk di kursi empuk hasil keringat rakyat itu sekarang sedang berpesta dengan jerih payah keringat rakyat.
-        </p>
-        <p>
-          Tampaknya Pancasila kini hanyalah simbol belaka. Simbol bagi kaum marginal yang hanya menjadi janji semu obat penenang agar mereka tetap bertahan hidup. Kemana perginya keringat dan darah rakyat yang selama ini diperas? Jawabannya terpampang jelas pada senyum iblis para penguasa zalim perampok uang rakyat, yang tampil dengan rompi oranye, serta tak lupa songkok hitam khas pencitraan di layer media. Bahkan, Tuhan pun mereka injak-injak!
-        </p>
-        <p>
-          Pengkhianatan ini bukan lagi sekedar kiasan retoris, melainkan tragedi nyata. Mengutip laporan dari <a href="https://www.bbc.com/indonesia/articles/cj36kjkmg4zo" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">BBC Indonesia</a>, gerbang universitas yang semestinya menjadi pendobrak kemiskinan justru dikomersilkan secara gelap, seperti yang terungkap pada kasus suap penerimaan mahasiswa baru di Universitas Jendral Soedirman (Unsoed).
-        </p>
-        <p>
-          Belum puas pejabat rakus itu melacurkan masa depan bangsa, elite birokrat dengan bengisnya juga merampok jatah perut rakyat. Dilansir dari pemberitaan <a href="https://nasional.kompas.com/read/2026/08/20/05133781/kejagung-periksa-6-saksi-kasus-korupsi-mbg-ada-staf-dan-asn-bgn" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">Kompas.com</a>, Kejaksaan Agung baru-baru ini memeriksa sejumlah saksi terkait dugaan Korupsi dan Mark-up Anggaran program Makan Bergizi Gratis (MBG) oleh oknum dari Badan Gizi Nasional. Anggaran miliaran rupiah yang seharusnya menjadi sepiring nasi bagi anak-anak kita yang kelaparan, kini tak lebih dari sekedar komoditas bagi para pejabat tamak dan rakus.
-        </p>
-        <p>
-          Belum selesai masalah tersebut, institusi hukum yang seharusnya membasmi kejahatan justru ikut membusuk dari dalam. Skandal korupsi yang menyeret eks Jaksa Agung Muda Bidang Tindak Pidana Khusus (Jampidsus) adalah puncak komedi gelap di negeri para bedebah ini. Melansir pernyataan dari Guru Besar Hukum Universitas Gadjah Mada (UGM) dari <a href="https://ugm.ac.id/id/berita/kasus-dugaan-korupsi-eks-jampidsus-guru-besar-ugm-soroti-lemahnya-pengawasan-antarlembaga-dan-kontrol-publik/" target="_blank" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/50 transition-colors font-medium">situs resmi ugm.ac.id</a>, kasus ini menjadi bukti nyata bahwa telah terjadi matinya independensi dan lemahnya pengawasan antar lembaga.
-        </p>
-        <p>
-          Menurut saya, kebangsatan seperti ini terus berulang karena sistem hukum kita yang memang diatur untuk tumpul ke atas dan tajam ke bawah. Kemiskinan struktural jelas bukan terjadi karena rakyat yang malas, namun sistem yang diatur oleh tangan-tangan penguasa bajingan berbalut jas mewah untuk menindas ke bawah.
-        </p>
-        
-        <blockquote class="border-l-4 border-red-500 pl-4 py-2 my-6 bg-red-900/10 italic text-red-200 font-semibold text-lg rounded-r-lg">
-          "Who do you call when the police murder?"
-        </blockquote>
+<div class="progress" id="progress"></div>
 
-        <p>
-          Dear Penguasa, kepada siapa kami bisa memberikan harapan jika Tuhan saja kau khianati? Sampai kapan harga diri rakyat akan terus diinjak-injak? Terkadang, ada kalanya perkataan dari masa lalu terasa seperti ditulis untuk hari ini, "Mereka tidak takut rakyat miskin, mereka takut ketika rakyat terlalu kritis dan cerdas."
-        </p>
-      </div>
-    </div>
-    
-  </div>
+
+<div class="
+blob
+w-96
+h-96
+bg-cyan-400
+top-0
+left-0
+">
+</div>
+
+
+<div class="
+blob
+w-96
+h-96
+bg-purple-500
+bottom-0
+right-0
+">
+</div>
+
+
+
+
+<main 
+class="
+max-w-4xl
+mx-auto
+px-5
+py-10
+relative
+z-10
+">
+
+
+
+<!-- HEADER -->
+
+
+<section
+data-aos="fade-down"
+class="
+glass
+rounded-[40px]
+p-8
+md:p-12
+text-center
+mb-10
+">
+
+
+<div class="
+inline-flex
+px-5
+py-2
+rounded-full
+tag
+text-cyan-300
+text-sm
+font-bold
+tracking-widest
+">
+
+DIGITAL OPINION ARCHIVE
+
+</div>
+
+
+
+<h1
+class="
+text-4xl
+md:text-6xl
+font-black
+mt-6
+"
+>
+
+Muhammad Irfan Dwitama
+
+</h1>
+
+
+
+<p
+class="
+text-slate-300
+mt-4
+text-lg
+"
+>
+
+Catatan pemikiran, kritik sosial,
+dan perspektif pribadi.
+
+</p>
+
+
+<a
+href="index.html"
+class="
+inline-flex
+mt-8
+px-6
+py-3
+rounded-xl
+bg-white/10
+hover:bg-white/20
+transition
+"
+>
+
+← Kembali ke Profil
+
+</a>
+
+
+</section>
+
+
+
+
+
+
+<!-- ARTICLE 1 -->
+
+
+<article
+data-aos="fade-up"
+class="
+glass
+rounded-[40px]
+overflow-hidden
+mb-12
+">
+
+
+<header
+class="
+p-8
+md:p-12
+border-b
+border-white/10
+">
+
+
+<div
+class="
+flex
+gap-3
+flex-wrap
+">
+
+
+<span class="tag px-4 py-2 rounded-full text-xs">
+
+CATATAN KRITIS
+
+</span>
+
+
+<span class="
+px-4
+py-2
+rounded-full
+bg-orange-500/20
+text-orange-300
+text-xs
+">
+
+POLITIK & HUKUM
+
+</span>
+
+
+</div>
+
+
+
+<h2
+class="
+text-3xl
+md:text-5xl
+font-black
+leading-tight
+mt-6
+"
+>
+
+TUNTUTAN 18 TAHUN NADIEM MAKARIM:
+KEADILAN ATAU TEATER KRIMINALISASI?
+
+</h2>
+
+
+
+<div class="
+mt-5
+text-slate-400
+">
+
+Ditulis oleh DT
+<br>
+
+Muhammad Irfan Dwitama
+
+</div>
+
+
+
+<div class="
+mt-5
+text-sm
+text-cyan-300
+">
+
+⏱ 5 menit membaca
+
+</div>
+
+
+</header>
+
+
+
+
+
+<div
+class="
+article
+p-8
+md:p-12
+"
+>
+
+
+<p>
+
+Hukum seharusnya menjadi kompas bagi keadilan,
+bukan sekadar panggung untuk memenuhi tekanan publik.
+Dalam setiap perkara besar, keseimbangan antara
+penegakan hukum dan perlindungan terhadap prinsip
+keadilan menjadi hal yang sangat penting.
+
+</p>
+
+
+<p>
+
+Kasus dugaan korupsi pengadaan Chromebook yang
+menyeret mantan Menteri Pendidikan, Kebudayaan,
+Riset, dan Teknologi Nadiem Makarim memunculkan
+berbagai perdebatan mengenai proporsionalitas
+tuntutan hukum.
+
+</p>
+
+
+
+<div
+class="
+quote
+rounded-2xl
+p-6
+my-8
+text-xl
+font-bold
+text-cyan-200
+"
+>
+
+"Penegakan hukum harus mencari kebenaran,
+bukan hanya kemenangan."
+
+<p>
+
+Perdebatan mengenai sebuah perkara hukum besar
+tidak hanya berbicara tentang siapa yang salah dan benar,
+tetapi juga bagaimana proses hukum tersebut dijalankan.
+Keadilan membutuhkan pembuktian yang kuat,
+bukan sekadar tekanan untuk menghasilkan hukuman maksimal.
+
+</p>
+
+
+
+<p>
+
+Dalam ruang publik, masyarakat memiliki hak untuk
+mengawasi proses hukum. Namun pengawasan tersebut
+harus tetap berjalan bersama prinsip praduga tidak bersalah
+dan penghormatan terhadap mekanisme peradilan.
+
+</p>
+
+
+
+<div class="
+bg-slate-900/50
+rounded-2xl
+p-6
+border
+border-white/10
+my-10
+">
+
+
+<h3 class="
+text-xl
+font-bold
+text-white
+mb-5
+">
+
+⚖️ Perspektif Utama
+
+</h3>
+
+
+<div class="space-y-4">
+
+
+<div
+class="
+p-4
+rounded-xl
+bg-white/5
+"
+>
+
+<b>
+1. Proporsionalitas Hukum
+</b>
+
+<p class="text-sm mt-2">
+
+Hukuman harus berdasarkan bukti,
+dampak kerugian, dan peran setiap pihak.
+
+</p>
+
+</div>
+
+
+
+
+<div
+class="
+p-4
+rounded-xl
+bg-white/5
+"
+>
+
+<b>
+2. Independensi Peradilan
+</b>
+
+<p class="text-sm mt-2">
+
+Hakim memiliki tanggung jawab memastikan
+keputusan berdasarkan fakta persidangan.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<p>
+
+Pada akhirnya, masyarakat membutuhkan sistem hukum
+yang kuat sekaligus adil. Ketegasan tanpa keseimbangan
+dapat berubah menjadi ketidakadilan, sedangkan
+kelemahan hukum dapat menghancurkan kepercayaan publik.
+
+</p>
+
+
+
+</div>
+
+
+</article>
+
+
+
+
+
+
+
+<!-- PEMBATAS -->
+
+
+<div class="
+flex
+justify-center
+my-12
+">
+
+
+<div class="
+w-32
+h-1
+rounded-full
+bg-gradient-to-r
+from-cyan-400
+to-purple-500
+">
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ARTICLE 2 -->
+
+
+<article
+data-aos="fade-up"
+class="
+glass
+rounded-[40px]
+overflow-hidden
+mb-12
+">
+
+
+<header
+class="
+p-8
+md:p-12
+">
+
+
+<div
+class="
+tag
+inline-flex
+px-4
+py-2
+rounded-full
+text-xs
+text-cyan-300
+"
+>
+
+ARSIP TULISAN
+
+</div>
+
+
+
+
+<h2
+class="
+text-3xl
+md:text-4xl
+font-black
+mt-6
+leading-tight
+"
+>
+
+Kemiskinan Struktural dan
+Matinya Keadilan di Negeri Para Bedebah
+
+</h2>
+
+
+
+<p
+class="
+mt-5
+text-slate-400
+"
+>
+
+Ditulis oleh Muhammad Irfan Dwitama
+
+</p>
+
+
+</header>
+
+
+
+
+<div
+class="
+article
+p-8
+md:p-12
+"
+>
+
+
+<p>
+
+Kemiskinan bukan hanya persoalan kurangnya
+pendapatan seseorang. Dalam banyak kondisi,
+kemiskinan dapat muncul akibat struktur sosial,
+ekonomi, dan kebijakan yang belum memberikan
+ruang yang adil bagi seluruh masyarakat.
+
+</p>
+
+
+
+<p>
+
+Ketika kesempatan tidak terbuka secara merata,
+masyarakat kecil sering menjadi kelompok yang
+paling merasakan dampak dari berbagai persoalan
+sistemik.
+
+</p>
+
+
+
+
+<div
+class="
+quote
+rounded-2xl
+p-6
+my-8
+"
+>
+
+
+<p class="
+text-xl
+font-bold
+text-purple-200
+"
+>
+
+"Keadilan sosial bukan hanya cita-cita,
+tetapi tanggung jawab yang harus diwujudkan."
+
+</p>
+
+
+</div>
+
+
+
+
+<p>
+
+Perubahan tidak hanya membutuhkan kritik,
+tetapi juga kesadaran bersama untuk membangun
+sistem yang lebih transparan, bertanggung jawab,
+dan berpihak kepada kepentingan publik.
+
+</p>
+
+
+
+
+</div>
+
+
+</article>
+
+
+
+
+
+
+
+
+<!-- RECOMMENDATION -->
+
+
+<section
+data-aos="fade-up"
+class="
+glass
+rounded-[35px]
+p-8
+mb-10
+">
+
+
+<h3
+class="
+text-2xl
+font-black
+mb-6
+"
+>
+
+📚 Arsip Lainnya
+
+</h3>
+
+
+
+<div
+class="
+grid
+md:grid-cols-2
+gap-5
+"
+>
+
+
+<div
+class="
+bg-white/5
+rounded-2xl
+p-5
+border
+border-white/10
+hover:bg-white/10
+transition
+"
+>
+
+<h4 class="font-bold">
+
+Tulisan Politik & Sosial
+
+</h4>
+
+
+<p class="
+text-sm
+text-slate-400
+mt-2
+">
+
+Kumpulan opini mengenai isu sosial,
+hukum, dan masyarakat.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div
+class="
+bg-white/5
+rounded-2xl
+p-5
+border
+border-white/10
+hover:bg-white/10
+transition
+"
+>
+
+<h4 class="font-bold">
+
+Pemikiran Digital
+
+</h4>
+
+
+<p class="
+text-sm
+text-slate-400
+mt-2
+">
+
+Catatan mengenai media,
+teknologi, dan kreativitas.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<footer
+class="
+text-center
+text-slate-500
+py-8
+"
+>
+
+© 2026 Muhammad Irfan Dwitama
+<br>
+
+Digital Opinion Archive
+
+</footer>
+
+
+
+</main>
+
+
+
+
+
+
+
+<script>
+
+
+AOS.init({
+
+duration:900,
+
+once:true
+
+});
+
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+
+let scroll =
+document.documentElement.scrollTop;
+
+
+let height =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
+
+
+let progress =
+(scroll/height)*100;
+
+
+document.getElementById(
+"progress"
+).style.width =
+progress+"%";
+
+
+}
+
+);
+
+
+
+</script>
+
+
+
 </body>
+
 </html>
+
+</div>
