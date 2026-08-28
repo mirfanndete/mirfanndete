@@ -8,20 +8,14 @@
 
 <title>Arsip Opini | Muhammad Irfan Dwitama</title>
 
-
 <script src="https://cdn.tailwindcss.com"></script>
 
-<link 
-href="https://unpkg.com/aos@next/dist/aos.css"
-rel="stylesheet">
-
+<link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 
-
 <style>
-
 
 body{
 
@@ -33,12 +27,35 @@ radial-gradient(circle at bottom right,#7c3aed,transparent 35%),
 }
 
 
-/* Glass */
+/* reading progress */
+
+#progress{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+height:4px;
+
+width:0%;
+
+background:
+linear-gradient(90deg,#38bdf8,#a855f7);
+
+z-index:999;
+
+}
+
+
+
+/* glass */
 
 .glass{
 
 background:
-rgba(15,23,42,.65);
+rgba(15,23,42,.72);
 
 backdrop-filter:
 blur(25px);
@@ -58,25 +75,25 @@ box-shadow:
 
 
 
-/* Floating */
+/* floating background */
 
-.blob{
+.blur-circle{
 
 position:absolute;
 
 border-radius:50%;
 
-filter:blur(80px);
+filter:blur(90px);
 
-opacity:.35;
+opacity:.3;
 
 animation:
-float 8s infinite ease-in-out;
+floating 8s infinite ease-in-out;
 
 }
 
 
-@keyframes float{
+@keyframes floating{
 
 50%{
 
@@ -89,72 +106,29 @@ translateY(-40px);
 
 
 
+/* artikel */
 
-/* progress */
+.article-text p{
 
-
-.progress{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-height:4px;
-
-background:
-linear-gradient(90deg,#38bdf8,#a855f7);
-
-z-index:99;
-
-width:0%;
-
-}
-
-
-
-
-/* article */
-
-.article p{
-
-margin-bottom:22px;
+margin-bottom:24px;
 
 line-height:1.9;
 
-color:#cbd5e1;
-
 font-size:1.05rem;
+
+color:#cbd5e1;
 
 text-align:justify;
 
 }
 
 
-.article a{
+
+.article-text a{
 
 color:#38bdf8;
 
 font-weight:600;
-
-}
-
-
-
-.quote{
-
-background:
-linear-gradient(
-135deg,
-rgba(14,165,233,.2),
-rgba(168,85,247,.15)
-);
-
-
-border-left:
-4px solid #38bdf8;
-
 
 }
 
@@ -172,52 +146,66 @@ border:
 
 
 
+.highlight{
+
+background:
+linear-gradient(
+135deg,
+rgba(14,165,233,.18),
+rgba(168,85,247,.15)
+);
+
+border-left:
+4px solid #38bdf8;
+
+}
+
+
+
 </style>
 
 
 </head>
 
 
+<body class="text-white min-h-screen font-sans overflow-x-hidden">
 
 
-<body 
-class="
-text-white
-min-h-screen
-font-sans
-">
+<div id="progress"></div>
 
-
-<div class="progress" id="progress"></div>
 
 
 <div class="
-blob
+blur-circle
 w-96
 h-96
 bg-cyan-400
 top-0
 left-0
+absolute
 ">
+
 </div>
 
 
+
 <div class="
-blob
+blur-circle
 w-96
 h-96
 bg-purple-500
 bottom-0
 right-0
+absolute
 ">
+
 </div>
 
 
 
 
-<main 
-class="
-max-w-4xl
+<main class="
+max-w-5xl
 mx-auto
 px-5
 py-10
@@ -230,15 +218,16 @@ z-10
 <!-- HEADER -->
 
 
-<section
+<section 
 data-aos="fade-down"
+
 class="
 glass
 rounded-[40px]
 p-8
 md:p-12
 text-center
-mb-10
+mb-12
 ">
 
 
@@ -249,9 +238,9 @@ py-2
 rounded-full
 tag
 text-cyan-300
-text-sm
+text-xs
 font-bold
-tracking-widest
+tracking-[3px]
 ">
 
 DIGITAL OPINION ARCHIVE
@@ -260,14 +249,12 @@ DIGITAL OPINION ARCHIVE
 
 
 
-<h1
-class="
+<h1 class="
 text-4xl
 md:text-6xl
 font-black
 mt-6
-"
->
+">
 
 Muhammad Irfan Dwitama
 
@@ -275,22 +262,21 @@ Muhammad Irfan Dwitama
 
 
 
-<p
-class="
+<p class="
 text-slate-300
 mt-4
 text-lg
-"
->
+">
 
 Catatan pemikiran, kritik sosial,
-dan perspektif pribadi.
+dan perspektif pribadi
 
 </p>
 
 
-<a
-href="index.html"
+
+<a href="index.html"
+
 class="
 inline-flex
 mt-8
@@ -300,12 +286,14 @@ rounded-xl
 bg-white/10
 hover:bg-white/20
 transition
-"
->
+border
+border-white/10
+">
 
 ← Kembali ke Profil
 
 </a>
+
 
 
 </section>
@@ -315,11 +303,12 @@ transition
 
 
 
-<!-- ARTICLE 1 -->
+<!-- ARTIKEL 1 -->
 
 
 <article
 data-aos="fade-up"
+
 class="
 glass
 rounded-[40px]
@@ -328,8 +317,7 @@ mb-12
 ">
 
 
-<header
-class="
+<header class="
 p-8
 md:p-12
 border-b
@@ -337,19 +325,22 @@ border-white/10
 ">
 
 
-<div
-class="
-flex
-gap-3
-flex-wrap
+<div class="flex gap-3 flex-wrap">
+
+
+<span class="
+tag
+px-4
+py-2
+rounded-full
+text-xs
+text-cyan-300
 ">
-
-
-<span class="tag px-4 py-2 rounded-full text-xs">
 
 CATATAN KRITIS
 
 </span>
+
 
 
 <span class="
@@ -361,7 +352,7 @@ text-orange-300
 text-xs
 ">
 
-POLITIK & HUKUM
+HUKUM & POLITIK
 
 </span>
 
@@ -370,15 +361,13 @@ POLITIK & HUKUM
 
 
 
-<h2
-class="
+<h2 class="
 text-3xl
 md:text-5xl
 font-black
 leading-tight
-mt-6
-"
->
+mt-7
+">
 
 TUNTUTAN 18 TAHUN NADIEM MAKARIM:
 KEADILAN ATAU TEATER KRIMINALISASI?
@@ -387,180 +376,96 @@ KEADILAN ATAU TEATER KRIMINALISASI?
 
 
 
-<div class="
-mt-5
+<p class="
 text-slate-400
-">
-
-Ditulis oleh DT
-<br>
-
-Muhammad Irfan Dwitama
-
-</div>
-
-
-
-<div class="
 mt-5
-text-sm
-text-cyan-300
 ">
 
-⏱ 5 menit membaca
+Ditulis oleh: DT (Muhammad Irfan Dwitama)
 
-</div>
+</p>
+
+
+
+<p class="
+text-cyan-300
+mt-3
+text-sm
+">
+
+⏱ Estimasi baca 5 menit
+
+</p>
 
 
 </header>
+<!-- ISI ARTIKEL -->
 
-
-
-
-
-<div
-class="
-article
+<div class="
+article-text
 p-8
 md:p-12
-"
->
+">
 
 
 <p>
-
-Hukum seharusnya menjadi kompas bagi keadilan,
-bukan sekadar panggung untuk memenuhi tekanan publik.
-Dalam setiap perkara besar, keseimbangan antara
-penegakan hukum dan perlindungan terhadap prinsip
-keadilan menjadi hal yang sangat penting.
-
+Hukum seharusnya menjadi kompas bagi keadilan, bukan panggung untuk mengeksploitasi reputasi seseorang demi kepuasan publik semata. Namun, dalam kasus dugaan korupsi pengadaan Chromebook yang menjerat mantan Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi (Mendikbudristek) Nadiem Makarim, aroma "teater hukum" terasa lebih kuat daripada semangat penegakan hukum yang jernih.
 </p>
 
 
 <p>
-
-Kasus dugaan korupsi pengadaan Chromebook yang
-menyeret mantan Menteri Pendidikan, Kebudayaan,
-Riset, dan Teknologi Nadiem Makarim memunculkan
-berbagai perdebatan mengenai proporsionalitas
-tuntutan hukum.
-
-</p>
-
-
-
-<div
-class="
-quote
-rounded-2xl
-p-6
-my-8
-text-xl
-font-bold
-text-cyan-200
-"
->
-
-"Penegakan hukum harus mencari kebenaran,
-bukan hanya kemenangan."
-
-<p>
-
-Perdebatan mengenai sebuah perkara hukum besar
-tidak hanya berbicara tentang siapa yang salah dan benar,
-tetapi juga bagaimana proses hukum tersebut dijalankan.
-Keadilan membutuhkan pembuktian yang kuat,
-bukan sekadar tekanan untuk menghasilkan hukuman maksimal.
-
+Angka tuntutan yang disodorkan Jaksa Penuntut Umum (JPU) seolah-olah mengaburkan batas antara pertanggungjawaban pidana dan upaya pemiskinan sistematis yang dipaksakan secara serampangan.
 </p>
 
 
 
 <p>
+Dilansir dari 
+<a href="https://www.cnnindonesia.com/nasional/20260514140343-12-1358610/poin-poin-tuntutan-jaksa-ke-nadiem-makarim-di-kasus-korupsi-chromebook"
+target="_blank">
 
-Dalam ruang publik, masyarakat memiliki hak untuk
-mengawasi proses hukum. Namun pengawasan tersebut
-harus tetap berjalan bersama prinsip praduga tidak bersalah
-dan penghormatan terhadap mekanisme peradilan.
+cnnindonesia.com
 
+</a>,
+poin-poin tuntutan Jaksa terhadap Nadiem mencapai angka yang sangat fantastis, yakni 18 tahun penjara.
+</p>
+
+
+
+<p>
+Narasi yang berkembang menyebutkan bahwa tuntutan tersebut memicu polemik besar karena dianggap tidak proporsional jika dibandingkan dengan berbagai perkara korupsi besar lainnya.
 </p>
 
 
 
 <div class="
-bg-slate-900/50
+highlight
 rounded-2xl
 p-6
-border
-border-white/10
-my-10
+my-8
 ">
 
 
 <h3 class="
 text-xl
 font-bold
-text-white
-mb-5
+text-cyan-300
+mb-3
 ">
 
-⚖️ Perspektif Utama
+⚖️ Catatan Kritis
 
 </h3>
 
 
-<div class="space-y-4">
+<p class="
+text-slate-200
+">
 
-
-<div
-class="
-p-4
-rounded-xl
-bg-white/5
-"
->
-
-<b>
-1. Proporsionalitas Hukum
-</b>
-
-<p class="text-sm mt-2">
-
-Hukuman harus berdasarkan bukti,
-dampak kerugian, dan peran setiap pihak.
+Penegakan hukum harus berdiri di atas pembuktian,
+bukan sekadar tekanan opini publik.
 
 </p>
-
-</div>
-
-
-
-
-<div
-class="
-p-4
-rounded-xl
-bg-white/5
-"
->
-
-<b>
-2. Independensi Peradilan
-</b>
-
-<p class="text-sm mt-2">
-
-Hakim memiliki tanggung jawab memastikan
-keputusan berdasarkan fakta persidangan.
-
-</p>
-
-</div>
-
-
-
-</div>
 
 
 </div>
@@ -569,17 +474,184 @@ keputusan berdasarkan fakta persidangan.
 
 
 <p>
+Awal mula kasus ini berjalan ketika Kejaksaan Agung melakukan penyelidikan terkait program digitalisasi pendidikan. Kasus ini kemudian berkembang menjadi perdebatan mengenai batas antara kesalahan administratif dan tindak pidana.
+</p>
 
-Pada akhirnya, masyarakat membutuhkan sistem hukum
-yang kuat sekaligus adil. Ketegasan tanpa keseimbangan
-dapat berubah menjadi ketidakadilan, sedangkan
-kelemahan hukum dapat menghancurkan kepercayaan publik.
+
+
+<p>
+Salah satu persoalan yang menjadi sorotan adalah mengenai penghitungan kerugian negara serta hubungan antara keputusan kebijakan dengan unsur niat jahat atau <i>mens rea</i>.
+</p>
+
+
+
+
+<p>
+Menurut beberapa pandangan ahli hukum, proses hukum harus mampu membedakan antara keputusan yang memiliki risiko kebijakan dengan tindakan yang memang bertujuan memperkaya diri sendiri.
+</p>
+
+
+
+
+<!-- BOX AHLI -->
+
+
+<div class="
+mt-10
+bg-slate-900/50
+rounded-3xl
+p-6
+border
+border-white/10
+">
+
+
+<h3 class="
+text-xl
+font-black
+text-white
+mb-6
+">
+
+👨‍⚖️ Poin Kesaksian Ahli
+
+</h3>
+
+
+
+
+<div class="
+space-y-4
+">
+
+
+<div class="
+bg-white/5
+rounded-xl
+p-5
+">
+
+
+<h4 class="
+font-bold
+text-cyan-300
+">
+
+1. Prof. Romli Atmasasmita
+
+</h4>
+
+
+<p class="
+mt-2
+text-sm
+text-slate-300
+">
+
+Menyoroti persoalan metode penghitungan kerugian negara dan pentingnya melihat apakah barang atau manfaat program benar-benar telah diterima.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="
+bg-white/5
+rounded-xl
+p-5
+">
+
+
+<h4 class="
+font-bold
+text-cyan-300
+">
+
+2. Zainal Arifin Mochtar
+
+</h4>
+
+
+<p class="
+mt-2
+text-sm
+text-slate-300
+">
+
+Menyoroti risiko kriminalisasi kebijakan apabila kesalahan administratif langsung diposisikan sebagai tindak pidana tanpa melihat unsur kesengajaan.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<p>
+
+Efek domino dari sebuah tuntutan yang dianggap tidak proporsional dapat memengaruhi keberanian para profesional untuk mengambil peran dalam pemerintahan.
+
+</p>
+
+
+
+<p>
+
+Jika setiap kebijakan yang memiliki risiko selalu berakhir dengan ancaman pidana berat, maka negara dapat kehilangan orang-orang yang memiliki kemampuan inovasi dan transformasi.
+
+</p>
+
+
+
+
+<div class="
+highlight
+rounded-2xl
+p-6
+my-10
+">
+
+
+<p class="
+text-xl
+font-bold
+text-purple-200
+">
+
+"Keadilan tidak hanya tentang menghukum,
+tetapi juga memastikan proses berjalan secara benar."
+
+</p>
+
+
+</div>
+
+
+
+<p>
+
+Pada akhirnya, masyarakat membutuhkan hukum yang tegas sekaligus adil. Majelis hakim memiliki tanggung jawab besar untuk melihat perkara berdasarkan fakta persidangan, bukan hanya berdasarkan tekanan publik.
 
 </p>
 
 
 
 </div>
+
+
 
 
 </article>
@@ -588,9 +660,7 @@ kelemahan hukum dapat menghancurkan kepercayaan publik.
 
 
 
-
-
-<!-- PEMBATAS -->
+<!-- PEMBATAS ARTIKEL -->
 
 
 <div class="
@@ -598,7 +668,6 @@ flex
 justify-center
 my-12
 ">
-
 
 <div class="
 w-32
@@ -611,20 +680,12 @@ to-purple-500
 
 </div>
 
-
 </div>
-
-
-
-
-
-
-
-<!-- ARTICLE 2 -->
-
+<!-- ARTIKEL 2 -->
 
 <article
 data-aos="fade-up"
+
 class="
 glass
 rounded-[40px]
@@ -633,15 +694,15 @@ mb-12
 ">
 
 
-<header
-class="
+<header class="
 p-8
 md:p-12
+border-b
+border-white/10
 ">
 
 
-<div
-class="
+<div class="
 tag
 inline-flex
 px-4
@@ -649,8 +710,7 @@ py-2
 rounded-full
 text-xs
 text-cyan-300
-"
->
+">
 
 ARSIP TULISAN
 
@@ -658,32 +718,39 @@ ARSIP TULISAN
 
 
 
-
-<h2
-class="
+<h2 class="
 text-3xl
-md:text-4xl
+md:text-5xl
 font-black
-mt-6
 leading-tight
-"
->
+mt-7
+">
 
-Kemiskinan Struktural dan
-Matinya Keadilan di Negeri Para Bedebah
+Kemiskinan Struktural dan Matinya Keadilan
+di Negeri Para Bedebah
 
 </h2>
 
 
 
-<p
-class="
-mt-5
+<p class="
 text-slate-400
-"
->
+mt-5
+">
 
-Ditulis oleh Muhammad Irfan Dwitama
+Ditulis oleh: Muhammad Irfan Dwitama
+
+</p>
+
+
+
+<p class="
+text-cyan-300
+mt-3
+text-sm
+">
+
+⏱ Estimasi baca 4 menit
 
 </p>
 
@@ -693,57 +760,42 @@ Ditulis oleh Muhammad Irfan Dwitama
 
 
 
-<div
-class="
-article
+
+<div class="
+article-text
 p-8
 md:p-12
-"
->
+">
 
 
 <p>
-
-Kemiskinan bukan hanya persoalan kurangnya
-pendapatan seseorang. Dalam banyak kondisi,
-kemiskinan dapat muncul akibat struktur sosial,
-ekonomi, dan kebijakan yang belum memberikan
-ruang yang adil bagi seluruh masyarakat.
-
+Realitas kehidupan saat ini membuat sebagian masyarakat masih berada dalam tekanan ekonomi yang berat. Ketika masyarakat kecil harus berjuang menghadapi kebutuhan hidup, persoalan ketimpangan dan penyalahgunaan kekuasaan terus menjadi perhatian publik.
 </p>
 
 
 
 <p>
-
-Ketika kesempatan tidak terbuka secara merata,
-masyarakat kecil sering menjadi kelompok yang
-paling merasakan dampak dari berbagai persoalan
-sistemik.
-
+Kemiskinan bukan hanya persoalan individu, tetapi juga dapat berkaitan dengan struktur sosial, ekonomi, dan kebijakan yang belum sepenuhnya memberikan kesempatan yang sama bagi seluruh masyarakat.
 </p>
 
 
 
 
-<div
-class="
-quote
+<div class="
+highlight
 rounded-2xl
 p-6
 my-8
-"
->
+">
 
 
 <p class="
 text-xl
 font-bold
 text-purple-200
-"
->
+">
 
-"Keadilan sosial bukan hanya cita-cita,
+"Keadilan sosial bukan sekadar slogan,
 tetapi tanggung jawab yang harus diwujudkan."
 
 </p>
@@ -755,13 +807,69 @@ tetapi tanggung jawab yang harus diwujudkan."
 
 
 <p>
+Ketika akses pendidikan, pekerjaan, dan kesempatan ekonomi tidak berjalan secara merata, kelompok masyarakat kecil sering menjadi pihak yang paling merasakan dampaknya.
+</p>
 
-Perubahan tidak hanya membutuhkan kritik,
-tetapi juga kesadaran bersama untuk membangun
-sistem yang lebih transparan, bertanggung jawab,
-dan berpihak kepada kepentingan publik.
+
+
+
+<p>
+Persoalan korupsi dan penyalahgunaan kekuasaan menjadi salah satu faktor yang memperbesar jarak antara kelompok masyarakat yang memiliki akses besar dengan mereka yang berada dalam posisi rentan.
+</p>
+
+
+
+
+<p>
+Institusi publik yang seharusnya menjadi tempat pelayanan masyarakat harus terus menjaga integritas agar kepercayaan publik tidak semakin melemah.
+</p>
+
+
+
+
+<p>
+Perubahan tidak cukup hanya dengan kritik. Dibutuhkan sistem yang transparan, pengawasan yang kuat, serta masyarakat yang aktif menjaga demokrasi.
+</p>
+
+
+
+
+
+<div class="
+bg-slate-900/50
+rounded-3xl
+p-6
+my-10
+border
+border-white/10
+">
+
+
+<h3 class="
+font-black
+text-xl
+mb-5
+">
+
+💡 Kesimpulan
+
+</h3>
+
+
+<p class="
+text-slate-300
+leading-relaxed
+">
+
+Keadilan membutuhkan keberanian untuk memperbaiki sistem,
+bukan hanya mencari siapa yang harus disalahkan.
+Masyarakat yang kritis dan pemerintah yang bertanggung jawab
+menjadi fondasi penting bagi perubahan.
 
 </p>
+
+
+</div>
 
 
 
@@ -777,142 +885,76 @@ dan berpihak kepada kepentingan publik.
 
 
 
+<!-- FOOTER -->
 
-<!-- RECOMMENDATION -->
 
-
-<section
-data-aos="fade-up"
+<footer
 class="
 glass
-rounded-[35px]
+rounded-[30px]
 p-8
+text-center
 mb-10
 ">
 
 
-<h3
-class="
+<h3 class="
 text-2xl
 font-black
-mb-6
-"
->
+">
 
-📚 Arsip Lainnya
+Muhammad Irfan Dwitama
 
 </h3>
 
 
 
-<div
-class="
-grid
-md:grid-cols-2
-gap-5
-"
->
-
-
-<div
-class="
-bg-white/5
-rounded-2xl
-p-5
-border
-border-white/10
-hover:bg-white/10
-transition
-"
->
-
-<h4 class="font-bold">
-
-Tulisan Politik & Sosial
-
-</h4>
-
-
 <p class="
-text-sm
 text-slate-400
-mt-2
+mt-3
 ">
-
-Kumpulan opini mengenai isu sosial,
-hukum, dan masyarakat.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div
-class="
-bg-white/5
-rounded-2xl
-p-5
-border
-border-white/10
-hover:bg-white/10
-transition
-"
->
-
-<h4 class="font-bold">
-
-Pemikiran Digital
-
-</h4>
-
-
-<p class="
-text-sm
-text-slate-400
-mt-2
-">
-
-Catatan mengenai media,
-teknologi, dan kreativitas.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<footer
-class="
-text-center
-text-slate-500
-py-8
-"
->
-
-© 2026 Muhammad Irfan Dwitama
-<br>
 
 Digital Opinion Archive
 
+</p>
+
+
+
+<a
+href="index.html"
+
+class="
+inline-flex
+mt-6
+px-6
+py-3
+rounded-xl
+bg-white/10
+hover:bg-white/20
+transition
+"
+>
+
+← Kembali ke halaman utama
+
+</a>
+
+
+
+<p class="
+text-xs
+text-slate-500
+mt-8
+">
+
+© 2026 Muhammad Irfan Dwitama
+
+</p>
+
+
 </footer>
+
+
 
 
 
@@ -939,7 +981,7 @@ once:true
 
 window.addEventListener(
 "scroll",
-()=>{
+function(){
 
 
 let scroll =
@@ -951,14 +993,14 @@ document.documentElement.scrollHeight -
 document.documentElement.clientHeight;
 
 
-let progress =
-(scroll/height)*100;
+let result =
+(scroll / height) * 100;
 
 
 document.getElementById(
 "progress"
 ).style.width =
-progress+"%";
+result + "%";
 
 
 }
@@ -974,5 +1016,3 @@ progress+"%";
 </body>
 
 </html>
-
-</div>
