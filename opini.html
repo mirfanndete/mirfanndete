@@ -1,1018 +1,280 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Arsip Opini | Muhammad Irfan Dwitama</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
-
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+:root{--ink:#0a0c12;--ink2:#11141d;--bone:#f2ede4;--mute:#8d92a3;--brass:#e0b040;--line:rgba(242,237,228,.12);
+--display:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif;
+--ease:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:var(--body);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--brass);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative}
+.narrow{max-width:760px;margin:0 auto}
 
-body{
+/* ambient */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--brass);z-index:70}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;left:0;top:0;
+background:radial-gradient(circle,rgba(224,176,64,.13),transparent 62%);will-change:transform}
+.aurora{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.aurora i{position:absolute;border-radius:50%;filter:blur(100px);opacity:.45;animation:drift 16s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:520px;height:520px;background:#1c2b66;left:-10%;top:5%}
+.aurora i:nth-child(2){width:440px;height:440px;background:#7a4a10;right:-8%;top:45%;animation-duration:20s;animation-delay:-5s}
+@keyframes drift{to{transform:translate(70px,-60px) scale(1.18)}}
+main,footer,nav{position:relative;z-index:1}
 
-background:
-radial-gradient(circle at top left,#0284c7,transparent 35%),
-radial-gradient(circle at bottom right,#7c3aed,transparent 35%),
-#020617;
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:transform .45s var(--ease),background .3s}
+nav.solid{background:rgba(10,12,18,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.hide{transform:translateY(-100%)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.03em}
+.logo i{color:var(--brass);font-style:normal;display:inline-block;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{50%{transform:translateY(-6px)}}
+.back{font-size:.85rem;font-weight:600;color:var(--mute);display:inline-flex;gap:8px;align-items:center;transition:color .2s}
+.back span{display:inline-block;transition:transform .4s var(--spring)}
+.back:hover{color:var(--bone)}.back:hover span{transform:translateX(-6px)}
 
-}
+/* buttons */
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:600;font-size:.92rem;border:1px solid var(--line);transition:background .3s,border-color .3s,color .3s,transform .25s var(--ease);will-change:transform}
+.btn:hover{border-color:var(--bone)}
+.btn.main{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+.btn.main:hover{background:var(--bone);border-color:var(--bone)}
 
+/* hero */
+.hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:130px 0 60px;position:relative}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:.82rem;font-weight:600;color:#cfcbc2;width:max-content;background:rgba(255,255,255,.03);opacity:0;animation:pop .9s var(--spring) .1s forwards}
+.pill b{width:8px;height:8px;border-radius:50%;background:var(--brass);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,176,64,.7)}100%{box-shadow:0 0 0 12px rgba(224,176,64,0)}}
+@keyframes pop{from{opacity:0;transform:scale(.6) translateY(20px)}to{opacity:1;transform:none}}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(3rem,10vw,8rem);line-height:.95;letter-spacing:-.045em;margin-top:26px}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:block;transform:translateY(115%) rotate(4deg);animation:up 1.1s var(--ease) forwards}
+.ln:nth-child(2)>span{animation-delay:.15s}
+@keyframes up{to{transform:none}}
+.out{color:transparent;-webkit-text-stroke:2px var(--brass)}
+.lead{max-width:520px;margin-top:30px;font-size:1.1rem;color:#cfcbc2;opacity:0;animation:pop 1s var(--spring) .8s forwards}
 
-/* reading progress */
+/* shapes */
+.shape{position:absolute;pointer-events:none}
+.ring{width:140px;height:140px;border:2px solid var(--brass);border-radius:50%;right:10%;top:26%;opacity:.5;animation:float 7s ease-in-out infinite}
+.plus{width:56px;height:56px;right:28%;bottom:16%;animation:spin 14s linear infinite}
+.plus::before,.plus::after{content:"";position:absolute;background:var(--bone);opacity:.45}
+.plus::before{left:50%;top:0;width:2px;height:100%;margin-left:-1px}
+.plus::after{top:50%;left:0;height:2px;width:100%;margin-top:-1px}
+@keyframes float{50%{transform:translateY(-32px) rotate(12deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-#progress{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-height:4px;
-
-width:0%;
-
-background:
-linear-gradient(90deg,#38bdf8,#a855f7);
-
-z-index:999;
-
-}
-
-
-
-/* glass */
-
-.glass{
-
-background:
-rgba(15,23,42,.72);
-
-backdrop-filter:
-blur(25px);
-
--webkit-backdrop-filter:
-blur(25px);
-
-
-border:
-1px solid rgba(255,255,255,.12);
-
-
-box-shadow:
-0 25px 80px rgba(0,0,0,.35);
-
-}
-
-
-
-/* floating background */
-
-.blur-circle{
-
-position:absolute;
-
-border-radius:50%;
-
-filter:blur(90px);
-
-opacity:.3;
-
-animation:
-floating 8s infinite ease-in-out;
-
-}
-
-
-@keyframes floating{
-
-50%{
-
-transform:
-translateY(-40px);
-
-}
-
-}
-
-
+/* daftar isi */
+.toc{padding:20px 0 40px}
+.toc h2,.sec-t{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em}
+.list{margin-top:26px;border-top:1px solid var(--line)}
+.li{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.li::before{content:"";position:absolute;inset:0;background:var(--brass);transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
+.li:hover::before{transform:scaleY(1)}
+.li>*{position:relative;transition:color .3s,transform .5s var(--ease)}
+.li .tg{font-size:.78rem;font-weight:600;color:var(--brass);min-width:120px}
+.li b{font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,2.4vw,1.7rem);letter-spacing:-.02em;line-height:1.2}
+.li .mn{font-size:.85rem;color:var(--mute);white-space:nowrap}
+.li:hover .tg,.li:hover .mn{color:var(--ink)}
+.li:hover b{color:var(--ink);transform:translateX(14px)}
+.li:hover .tg{transform:translateX(14px)}
 
 /* artikel */
+.art{padding:110px 0 40px;border-top:1px solid var(--line);position:relative}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:600;border:1px solid rgba(224,176,64,.4);color:var(--brass)}
+.chip.alt{border-color:var(--line);color:var(--mute)}
+.art h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5.2vw,3.8rem);line-height:1.04;letter-spacing:-.04em}
+.by{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--mute);font-size:.92rem}
+.by b{color:var(--bone);font-weight:600}
+.body{margin-top:56px}
+.body p{font-size:1.08rem;line-height:1.95;color:#cdc9c0;margin-bottom:26px}
+.body a{color:var(--brass);font-weight:600;border-bottom:1px solid rgba(224,176,64,.5)}
+.body i{color:#e9e4d9}
+.body>p:first-of-type::first-letter{font-family:var(--display);font-weight:800;font-size:4.6rem;line-height:.8;float:left;padding:8px 14px 0 0;color:var(--brass)}
 
-.article-text p{
+/* kutipan / catatan */
+.note{margin:46px 0;padding:30px 32px;border-radius:22px;background:var(--ink2);border:1px solid var(--line);border-left:3px solid var(--brass);position:relative;overflow:hidden}
+.note::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,0%) var(--my,0%),rgba(224,176,64,.14),transparent 60%);opacity:0;transition:opacity .3s}
+.note:hover::before{opacity:1}
+.note h3{position:relative;font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--brass);margin-bottom:8px}
+.note p{position:relative;margin:0!important;font-size:1.1rem!important;color:#e4e0d6!important}
+.pull{margin:56px 0;font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.15;letter-spacing:-.03em;padding-left:26px;border-left:3px solid var(--brass)}
+.pull span{color:var(--brass)}
 
-margin-bottom:24px;
+/* ahli */
+.experts{margin:46px 0}
+.experts>h3{font-family:var(--display);font-weight:800;font-size:1.5rem;margin-bottom:20px}
+.ex{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:24px;border-radius:20px;background:var(--ink2);border:1px solid var(--line);margin-bottom:14px;transition:border-color .3s,transform .4s var(--spring)}
+.ex:hover{border-color:rgba(224,176,64,.5);transform:translateY(-5px)}
+.ex .n{width:48px;height:48px;border-radius:50%;background:var(--brass);color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.ex h4{font-family:var(--display);font-weight:800;font-size:1.15rem}
+.ex p{margin:6px 0 0!important;font-size:.95rem!important;line-height:1.7!important;color:#bdb9b0!important}
 
-line-height:1.9;
+/* footer */
+.end{padding:90px 0 60px;border-top:1px solid var(--line);text-align:center}
+.end h2{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,7vw,5rem);letter-spacing:-.04em;line-height:1}
+.end p{color:var(--mute);margin-top:14px}
+.end .btn{margin-top:30px}
+footer{padding:26px 0;color:var(--mute);font-size:.8rem;text-align:center;border-top:1px solid var(--line)}
+#top{position:fixed;right:22px;bottom:22px;width:50px;height:50px;border-radius:50%;border:1px solid var(--brass);background:rgba(10,12,18,.85);color:var(--brass);font-size:1.2rem;cursor:pointer;z-index:55;opacity:0;transform:scale(.4) translateY(30px);pointer-events:none;transition:.5s var(--spring)}
+#top.show{opacity:1;transform:none;pointer-events:auto}
+#top:hover{background:var(--brass);color:var(--ink)}
 
-font-size:1.05rem;
+/* ===== POP-UP (aktif kalau JS jalan) ===== */
+.js .rv{opacity:0;transform:translateY(60px) scale(.94);filter:blur(8px);transition:opacity .8s var(--ease),transform 1s var(--spring),filter .8s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.on{opacity:1;transform:none;filter:none}
+.w{display:inline-block}
+.js .w{opacity:0;transform:translateY(70%) scale(.8);filter:blur(10px);transition:opacity .7s var(--ease),transform .9s var(--spring),filter .7s var(--ease);transition-delay:calc(var(--i)*60ms)}
+.js [data-split].on .w{opacity:1;transform:none;filter:none}
 
-color:#cbd5e1;
-
-text-align:justify;
-
-}
-
-
-
-.article-text a{
-
-color:#38bdf8;
-
-font-weight:600;
-
-}
-
-
-
-.tag{
-
-background:
-rgba(56,189,248,.15);
-
-border:
-1px solid rgba(56,189,248,.3);
-
-}
-
-
-
-.highlight{
-
-background:
-linear-gradient(
-135deg,
-rgba(14,165,233,.18),
-rgba(168,85,247,.15)
-);
-
-border-left:
-4px solid #38bdf8;
-
-}
-
-
-
+@media (max-width:760px){
+.li{grid-template-columns:1fr;gap:4px}.li .tg{min-width:0}
+.ring{width:80px;height:80px}.plus,#glow{display:none}
+.body>p:first-of-type::first-letter{font-size:3.6rem}
+.note{padding:24px 22px}.art{padding-top:80px}}
 </style>
-
-
 </head>
+<body>
+<div id="bar"></div><div id="glow"></div>
+<div class="aurora"><i></i><i></i></div>
 
+<nav id="nav"><div class="wrap">
+<a href="index.html" class="logo">DT<i>.</i></a>
+<a href="index.html" class="back"><span>←</span> Kembali ke profil</a>
+</div></nav>
 
-<body class="text-white min-h-screen font-sans overflow-x-hidden">
-
-
-<div id="progress"></div>
-
-
-
-<div class="
-blur-circle
-w-96
-h-96
-bg-cyan-400
-top-0
-left-0
-absolute
-">
-
+<main>
+<header class="hero">
+<div class="shape ring"></div><div class="shape plus"></div>
+<div class="wrap">
+<span class="pill"><b></b>Digital Opinion Archive</span>
+<h1><span class="ln"><span>My</span></span><span class="ln"><span class="out">thoughts.</span></span></h1>
+<p class="lead">Catatan pemikiran, kritik sosial, dan perspektif pribadi dari Muhammad Irfan Dwitama.</p>
 </div>
+</header>
 
-
-
-<div class="
-blur-circle
-w-96
-h-96
-bg-purple-500
-bottom-0
-right-0
-absolute
-">
-
+<section class="toc"><div class="wrap">
+<h2 class="rv">Semua tulisan</h2>
+<div class="list">
+<a href="#nadiem" class="li rv"><span class="tg">Hukum &amp; Politik</span><b>Tuntutan 18 Tahun Nadiem Makarim: Keadilan atau Teater Kriminalisasi?</b><span class="mn">3 menit baca</span></a>
+<a href="#struktural" class="li rv" style="--d:.12s"><span class="tg">Arsip Tulisan</span><b>Kemiskinan Struktural dan Matinya Keadilan di Negeri Para Bedebah</b><span class="mn">2 menit baca</span></a>
 </div>
-
-
-
-
-<main class="
-max-w-5xl
-mx-auto
-px-5
-py-10
-relative
-z-10
-">
-
-
-
-<!-- HEADER -->
-
-
-<section 
-data-aos="fade-down"
-
-class="
-glass
-rounded-[40px]
-p-8
-md:p-12
-text-center
-mb-12
-">
-
-
-<div class="
-inline-flex
-px-5
-py-2
-rounded-full
-tag
-text-cyan-300
-text-xs
-font-bold
-tracking-[3px]
-">
-
-DIGITAL OPINION ARCHIVE
-
-</div>
-
-
-
-<h1 class="
-text-4xl
-md:text-6xl
-font-black
-mt-6
-">
-
-Muhammad Irfan Dwitama
-
-</h1>
-
-
-
-<p class="
-text-slate-300
-mt-4
-text-lg
-">
-
-Catatan pemikiran, kritik sosial,
-dan perspektif pribadi
-
-</p>
-
-
-
-<a href="index.html"
-
-class="
-inline-flex
-mt-8
-px-6
-py-3
-rounded-xl
-bg-white/10
-hover:bg-white/20
-transition
-border
-border-white/10
-">
-
-← Kembali ke Profil
-
-</a>
-
-
-
-</section>
-
-
-
-
-
+</div></section>
 
 <!-- ARTIKEL 1 -->
+<article class="art" id="nadiem"><div class="wrap"><div class="narrow">
+<div class="meta rv"><span class="chip">Catatan Kritis</span><span class="chip alt">Hukum &amp; Politik</span></div>
+<h2 data-split>Tuntutan 18 Tahun Nadiem Makarim: Keadilan atau Teater Kriminalisasi?</h2>
+<div class="by rv"><span>Ditulis oleh <b>DT (Muhammad Irfan Dwitama)</b></span><span>⏱ Estimasi baca 3 menit</span></div>
 
+<div class="body">
+<p class="rv">Hukum seharusnya menjadi kompas bagi keadilan, bukan panggung untuk mengeksploitasi reputasi seseorang demi kepuasan publik semata. Namun, dalam kasus dugaan korupsi pengadaan Chromebook yang menjerat mantan Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi (Mendikbudristek) Nadiem Makarim, aroma "teater hukum" terasa lebih kuat daripada semangat penegakan hukum yang jernih.</p>
+<p class="rv">Angka tuntutan yang disodorkan Jaksa Penuntut Umum (JPU) seolah-olah mengaburkan batas antara pertanggungjawaban pidana dan upaya pemiskinan sistematis yang dipaksakan secara serampangan.</p>
+<p class="rv">Dilansir dari <a href="https://www.cnnindonesia.com/nasional/20260514140343-12-1358610/poin-poin-tuntutan-jaksa-ke-nadiem-makarim-di-kasus-korupsi-chromebook" target="_blank" rel="noopener">cnnindonesia.com</a>, poin-poin tuntutan Jaksa terhadap Nadiem mencapai angka yang sangat fantastis, yakni 18 tahun penjara.</p>
+<p class="rv">Narasi yang berkembang menyebutkan bahwa tuntutan tersebut memicu polemik besar karena dianggap tidak proporsional jika dibandingkan dengan berbagai perkara korupsi besar lainnya.</p>
 
-<article
-data-aos="fade-up"
+<div class="note rv"><h3>⚖️ Catatan Kritis</h3><p>Penegakan hukum harus berdiri di atas pembuktian, bukan sekadar tekanan opini publik.</p></div>
 
-class="
-glass
-rounded-[40px]
-overflow-hidden
-mb-12
-">
+<p class="rv">Awal mula kasus ini berjalan ketika Kejaksaan Agung melakukan penyelidikan terkait program digitalisasi pendidikan. Kasus ini kemudian berkembang menjadi perdebatan mengenai batas antara kesalahan administratif dan tindak pidana.</p>
+<p class="rv">Salah satu persoalan yang menjadi sorotan adalah mengenai penghitungan kerugian negara serta hubungan antara keputusan kebijakan dengan unsur niat jahat atau <i>mens rea</i>.</p>
+<p class="rv">Menurut beberapa pandangan ahli hukum, proses hukum harus mampu membedakan antara keputusan yang memiliki risiko kebijakan dengan tindakan yang memang bertujuan memperkaya diri sendiri.</p>
 
-
-<header class="
-p-8
-md:p-12
-border-b
-border-white/10
-">
-
-
-<div class="flex gap-3 flex-wrap">
-
-
-<span class="
-tag
-px-4
-py-2
-rounded-full
-text-xs
-text-cyan-300
-">
-
-CATATAN KRITIS
-
-</span>
-
-
-
-<span class="
-px-4
-py-2
-rounded-full
-bg-orange-500/20
-text-orange-300
-text-xs
-">
-
-HUKUM & POLITIK
-
-</span>
-
-
+<div class="experts">
+<h3 class="rv">👨‍⚖️ Poin Kesaksian Ahli</h3>
+<div class="ex rv"><div class="n">1</div><div><h4>Prof. Romli Atmasasmita</h4><p>Menyoroti persoalan metode penghitungan kerugian negara dan pentingnya melihat apakah barang atau manfaat program benar-benar telah diterima.</p></div></div>
+<div class="ex rv" style="--d:.12s"><div class="n">2</div><div><h4>Zainal Arifin Mochtar</h4><p>Menyoroti risiko kriminalisasi kebijakan apabila kesalahan administratif langsung diposisikan sebagai tindak pidana tanpa melihat unsur kesengajaan.</p></div></div>
 </div>
 
+<p class="rv">Efek domino dari sebuah tuntutan yang dianggap tidak proporsional dapat memengaruhi keberanian para profesional untuk mengambil peran dalam pemerintahan.</p>
+<p class="rv">Jika setiap kebijakan yang memiliki risiko selalu berakhir dengan ancaman pidana berat, maka negara dapat kehilangan orang-orang yang memiliki kemampuan inovasi dan transformasi.</p>
 
+<p class="pull rv">"Keadilan tidak hanya tentang menghukum, <span>tetapi juga memastikan proses berjalan secara benar.</span>"</p>
 
-<h2 class="
-text-3xl
-md:text-5xl
-font-black
-leading-tight
-mt-7
-">
-
-TUNTUTAN 18 TAHUN NADIEM MAKARIM:
-KEADILAN ATAU TEATER KRIMINALISASI?
-
-</h2>
-
-
-
-<p class="
-text-slate-400
-mt-5
-">
-
-Ditulis oleh: DT (Muhammad Irfan Dwitama)
-
-</p>
-
-
-
-<p class="
-text-cyan-300
-mt-3
-text-sm
-">
-
-⏱ Estimasi baca 3 menit
-
-</p>
-
-
-</header>
-<!-- ISI ARTIKEL -->
-
-<div class="
-article-text
-p-8
-md:p-12
-">
-
-
-<p>
-Hukum seharusnya menjadi kompas bagi keadilan, bukan panggung untuk mengeksploitasi reputasi seseorang demi kepuasan publik semata. Namun, dalam kasus dugaan korupsi pengadaan Chromebook yang menjerat mantan Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi (Mendikbudristek) Nadiem Makarim, aroma "teater hukum" terasa lebih kuat daripada semangat penegakan hukum yang jernih.
-</p>
-
-
-<p>
-Angka tuntutan yang disodorkan Jaksa Penuntut Umum (JPU) seolah-olah mengaburkan batas antara pertanggungjawaban pidana dan upaya pemiskinan sistematis yang dipaksakan secara serampangan.
-</p>
-
-
-
-<p>
-Dilansir dari 
-<a href="https://www.cnnindonesia.com/nasional/20260514140343-12-1358610/poin-poin-tuntutan-jaksa-ke-nadiem-makarim-di-kasus-korupsi-chromebook"
-target="_blank">
-
-cnnindonesia.com
-
-</a>,
-poin-poin tuntutan Jaksa terhadap Nadiem mencapai angka yang sangat fantastis, yakni 18 tahun penjara.
-</p>
-
-
-
-<p>
-Narasi yang berkembang menyebutkan bahwa tuntutan tersebut memicu polemik besar karena dianggap tidak proporsional jika dibandingkan dengan berbagai perkara korupsi besar lainnya.
-</p>
-
-
-
-<div class="
-highlight
-rounded-2xl
-p-6
-my-8
-">
-
-
-<h3 class="
-text-xl
-font-bold
-text-cyan-300
-mb-3
-">
-
-⚖️ Catatan Kritis
-
-</h3>
-
-
-<p class="
-text-slate-200
-">
-
-Penegakan hukum harus berdiri di atas pembuktian,
-bukan sekadar tekanan opini publik.
-
-</p>
-
-
+<p class="rv">Pada akhirnya, masyarakat membutuhkan hukum yang tegas sekaligus adil. Majelis hakim memiliki tanggung jawab besar untuk melihat perkara berdasarkan fakta persidangan, bukan hanya berdasarkan tekanan publik.</p>
 </div>
+</div></div></article>
 
-
-
-
-<p>
-Awal mula kasus ini berjalan ketika Kejaksaan Agung melakukan penyelidikan terkait program digitalisasi pendidikan. Kasus ini kemudian berkembang menjadi perdebatan mengenai batas antara kesalahan administratif dan tindak pidana.
-</p>
-
-
-
-<p>
-Salah satu persoalan yang menjadi sorotan adalah mengenai penghitungan kerugian negara serta hubungan antara keputusan kebijakan dengan unsur niat jahat atau <i>mens rea</i>.
-</p>
-
-
-
-
-<p>
-Menurut beberapa pandangan ahli hukum, proses hukum harus mampu membedakan antara keputusan yang memiliki risiko kebijakan dengan tindakan yang memang bertujuan memperkaya diri sendiri.
-</p>
-
-
-
-
-<!-- BOX AHLI -->
-
-
-<div class="
-mt-10
-bg-slate-900/50
-rounded-3xl
-p-6
-border
-border-white/10
-">
-
-
-<h3 class="
-text-xl
-font-black
-text-white
-mb-6
-">
-
-👨‍⚖️ Poin Kesaksian Ahli
-
-</h3>
-
-
-
-
-<div class="
-space-y-4
-">
-
-
-<div class="
-bg-white/5
-rounded-xl
-p-5
-">
-
-
-<h4 class="
-font-bold
-text-cyan-300
-">
-
-1. Prof. Romli Atmasasmita
-
-</h4>
-
-
-<p class="
-mt-2
-text-sm
-text-slate-300
-">
-
-Menyoroti persoalan metode penghitungan kerugian negara dan pentingnya melihat apakah barang atau manfaat program benar-benar telah diterima.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="
-bg-white/5
-rounded-xl
-p-5
-">
-
-
-<h4 class="
-font-bold
-text-cyan-300
-">
-
-2. Zainal Arifin Mochtar
-
-</h4>
-
-
-<p class="
-mt-2
-text-sm
-text-slate-300
-">
-
-Menyoroti risiko kriminalisasi kebijakan apabila kesalahan administratif langsung diposisikan sebagai tindak pidana tanpa melihat unsur kesengajaan.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<p>
-
-Efek domino dari sebuah tuntutan yang dianggap tidak proporsional dapat memengaruhi keberanian para profesional untuk mengambil peran dalam pemerintahan.
-
-</p>
-
-
-
-<p>
-
-Jika setiap kebijakan yang memiliki risiko selalu berakhir dengan ancaman pidana berat, maka negara dapat kehilangan orang-orang yang memiliki kemampuan inovasi dan transformasi.
-
-</p>
-
-
-
-
-<div class="
-highlight
-rounded-2xl
-p-6
-my-10
-">
-
-
-<p class="
-text-xl
-font-bold
-text-purple-200
-">
-
-"Keadilan tidak hanya tentang menghukum,
-tetapi juga memastikan proses berjalan secara benar."
-
-</p>
-
-
-</div>
-
-
-
-<p>
-
-Pada akhirnya, masyarakat membutuhkan hukum yang tegas sekaligus adil. Majelis hakim memiliki tanggung jawab besar untuk melihat perkara berdasarkan fakta persidangan, bukan hanya berdasarkan tekanan publik.
-
-</p>
-
-
-
-</div>
-
-
-
-
-</article>
-
-
-
-
-
-<!-- PEMBATAS ARTIKEL -->
-
-
-<div class="
-flex
-justify-center
-my-12
-">
-
-<div class="
-w-32
-h-1
-rounded-full
-bg-gradient-to-r
-from-cyan-400
-to-purple-500
-">
-
-</div>
-
-</div>
 <!-- ARTIKEL 2 -->
+<article class="art" id="struktural"><div class="wrap"><div class="narrow">
+<div class="meta rv"><span class="chip">Arsip Tulisan</span></div>
+<h2 data-split>Kemiskinan Struktural dan Matinya Keadilan di Negeri Para Bedebah</h2>
+<div class="by rv"><span>Ditulis oleh <b>Muhammad Irfan Dwitama</b></span><span>⏱ Estimasi baca 2 menit</span></div>
 
-<article
-data-aos="fade-up"
+<div class="body">
+<p class="rv">Realitas kehidupan saat ini membuat sebagian masyarakat masih berada dalam tekanan ekonomi yang berat. Ketika masyarakat kecil harus berjuang menghadapi kebutuhan hidup, persoalan ketimpangan dan penyalahgunaan kekuasaan terus menjadi perhatian publik.</p>
+<p class="rv">Kemiskinan bukan hanya persoalan individu, tetapi juga dapat berkaitan dengan struktur sosial, ekonomi, dan kebijakan yang belum sepenuhnya memberikan kesempatan yang sama bagi seluruh masyarakat.</p>
 
-class="
-glass
-rounded-[40px]
-overflow-hidden
-mb-12
-">
+<p class="pull rv">"Keadilan sosial bukan sekadar slogan, <span>tetapi tanggung jawab yang harus diwujudkan.</span>"</p>
 
+<p class="rv">Ketika akses pendidikan, pekerjaan, dan kesempatan ekonomi tidak berjalan secara merata, kelompok masyarakat kecil sering menjadi pihak yang paling merasakan dampaknya.</p>
+<p class="rv">Persoalan korupsi dan penyalahgunaan kekuasaan menjadi salah satu faktor yang memperbesar jarak antara kelompok masyarakat yang memiliki akses besar dengan mereka yang berada dalam posisi rentan.</p>
+<p class="rv">Institusi publik yang seharusnya menjadi tempat pelayanan masyarakat harus terus menjaga integritas agar kepercayaan publik tidak semakin melemah.</p>
+<p class="rv">Perubahan tidak cukup hanya dengan kritik. Dibutuhkan sistem yang transparan, pengawasan yang kuat, serta masyarakat yang aktif menjaga demokrasi.</p>
 
-<header class="
-p-8
-md:p-12
-border-b
-border-white/10
-">
-
-
-<div class="
-tag
-inline-flex
-px-4
-py-2
-rounded-full
-text-xs
-text-cyan-300
-">
-
-ARSIP TULISAN
-
+<div class="note rv"><h3>💡 Kesimpulan</h3><p>Keadilan membutuhkan keberanian untuk memperbaiki sistem, bukan hanya mencari siapa yang harus disalahkan. Masyarakat yang kritis dan pemerintah yang bertanggung jawab menjadi fondasi penting bagi perubahan.</p></div>
 </div>
-
-
-
-<h2 class="
-text-3xl
-md:text-5xl
-font-black
-leading-tight
-mt-7
-">
-
-Kemiskinan Struktural dan Matinya Keadilan
-di Negeri Para Bedebah
-
-</h2>
-
-
-
-<p class="
-text-slate-400
-mt-5
-">
-
-Ditulis oleh: Muhammad Irfan Dwitama
-
-</p>
-
-
-
-<p class="
-text-cyan-300
-mt-3
-text-sm
-">
-
-⏱ Estimasi baca 2 menit
-
-</p>
-
-
-</header>
-
-
-
-
-
-<div class="
-article-text
-p-8
-md:p-12
-">
-
-
-<p>
-Realitas kehidupan saat ini membuat sebagian masyarakat masih berada dalam tekanan ekonomi yang berat. Ketika masyarakat kecil harus berjuang menghadapi kebutuhan hidup, persoalan ketimpangan dan penyalahgunaan kekuasaan terus menjadi perhatian publik.
-</p>
-
-
-
-<p>
-Kemiskinan bukan hanya persoalan individu, tetapi juga dapat berkaitan dengan struktur sosial, ekonomi, dan kebijakan yang belum sepenuhnya memberikan kesempatan yang sama bagi seluruh masyarakat.
-</p>
-
-
-
-
-<div class="
-highlight
-rounded-2xl
-p-6
-my-8
-">
-
-
-<p class="
-text-xl
-font-bold
-text-purple-200
-">
-
-"Keadilan sosial bukan sekadar slogan,
-tetapi tanggung jawab yang harus diwujudkan."
-
-</p>
-
-
-</div>
-
-
-
-
-<p>
-Ketika akses pendidikan, pekerjaan, dan kesempatan ekonomi tidak berjalan secara merata, kelompok masyarakat kecil sering menjadi pihak yang paling merasakan dampaknya.
-</p>
-
-
-
-
-<p>
-Persoalan korupsi dan penyalahgunaan kekuasaan menjadi salah satu faktor yang memperbesar jarak antara kelompok masyarakat yang memiliki akses besar dengan mereka yang berada dalam posisi rentan.
-</p>
-
-
-
-
-<p>
-Institusi publik yang seharusnya menjadi tempat pelayanan masyarakat harus terus menjaga integritas agar kepercayaan publik tidak semakin melemah.
-</p>
-
-
-
-
-<p>
-Perubahan tidak cukup hanya dengan kritik. Dibutuhkan sistem yang transparan, pengawasan yang kuat, serta masyarakat yang aktif menjaga demokrasi.
-</p>
-
-
-
-
-
-<div class="
-bg-slate-900/50
-rounded-3xl
-p-6
-my-10
-border
-border-white/10
-">
-
-
-<h3 class="
-font-black
-text-xl
-mb-5
-">
-
-💡 Kesimpulan
-
-</h3>
-
-
-<p class="
-text-slate-300
-leading-relaxed
-">
-
-Keadilan membutuhkan keberanian untuk memperbaiki sistem,
-bukan hanya mencari siapa yang harus disalahkan.
-Masyarakat yang kritis dan pemerintah yang bertanggung jawab
-menjadi fondasi penting bagi perubahan.
-
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</article>
-
-
-
-
-
-
-
-<!-- FOOTER -->
-
-
-<footer
-class="
-glass
-rounded-[30px]
-p-8
-text-center
-mb-10
-">
-
-
-<h3 class="
-text-2xl
-font-black
-">
-
-Muhammad Irfan Dwitama
-
-</h3>
-
-
-
-<p class="
-text-slate-400
-mt-3
-">
-
-Digital Opinion Archive
-
-</p>
-
-
-
-<a
-href="index.html"
-
-class="
-inline-flex
-mt-6
-px-6
-py-3
-rounded-xl
-bg-white/10
-hover:bg-white/20
-transition
-"
->
-
-← Kembali ke halaman utama
-
-</a>
-
-
-
-<p class="
-text-xs
-text-slate-500
-mt-8
-">
-
-© 2026 Muhammad Irfan Dwitama
-
-</p>
-
-
-</footer>
-
-
-
-
-
+</div></div></article>
+
+<section class="end"><div class="wrap">
+<h2 data-split>Terima kasih sudah membaca.</h2>
+<p class="rv">Setiap ide layak punya ruang untuk didengar.</p>
+<a href="index.html" class="btn main mag rv">← Kembali ke halaman utama</a>
+</div></section>
 </main>
 
-
-
-
-
-
+<footer>© 2026 Muhammad Irfan Dwitama · Digital Opinion Archive</footer>
+<button id="top" aria-label="Kembali ke atas">↑</button>
 
 <script>
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
 
+/* progress, nav, tombol atas */
+const bar=$('#bar'),nav=$('#nav'),topBtn=$('#top');let last=0;
+function onScroll(){
+  const h=document.documentElement,y=h.scrollTop;
+  bar.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';
+  nav.classList.toggle('solid',y>40);nav.classList.toggle('hide',y>last&&y>300);last=y;
+  topBtn.classList.toggle('show',y>900);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
 
-AOS.init({
+/* cahaya mengikuti kursor */
+const glow=$('#glow');let gx=0,gy=0,tx=0,ty=0;
+addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});
+(function loop(){gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;glow.style.transform=`translate(${gx-260}px,${gy-260}px)`;requestAnimationFrame(loop)})();
 
-duration:900,
+/* sorotan di kotak catatan */
+$$('.note').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}));
 
-once:true
-
+/* tombol magnetik */
+$$('.mag').forEach(b=>{
+  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.28}px,${(e.clientY-r.top-r.height/2)*.4}px)`});
+  b.addEventListener('pointerleave',()=>b.style.transform='');
 });
 
+/* pecah judul jadi kata-kata */
+$$('[data-split]').forEach(el=>{let n=0;
+  (function split(node){[...node.childNodes].forEach(c=>{
+    if(c.nodeType===3){const f=document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim()){f.append(t)}else{const s=document.createElement('span');s.className='w';s.style.setProperty('--i',n++);s.textContent=t;f.append(s)}});
+      c.replaceWith(f)}else split(c)})})(el);
+});
 
-
-window.addEventListener(
-"scroll",
-function(){
-
-
-let scroll =
-document.documentElement.scrollTop;
-
-
-let height =
-document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
-
-
-let result =
-(scroll / height) * 100;
-
-
-document.getElementById(
-"progress"
-).style.width =
-result + "%";
-
-
-}
-
-);
-
-
-
+/* muncul saat di-scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv,[data-split]').forEach(el=>io.observe(el));
 </script>
-
-
-
 </body>
-
 </html>
