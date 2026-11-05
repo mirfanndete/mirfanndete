@@ -1,416 +1,305 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DT / Dete — Writer, Communicator, Storyteller</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DT / Dete — Writer, Communicator, Storyteller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0c12;--ink2:#11141d;--bone:#f2ede4;--mute:#8d92a3;--brass:#e0b040;--line:rgba(242,237,228,.12);
+--display:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;--body:"Plus Jakarta Sans",system-ui,sans-serif;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:var(--body);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--brass);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative}
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+/* ambient layers */
+#bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--brass);z-index:70}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;left:0;top:0;
+background:radial-gradient(circle,rgba(224,176,64,.13),transparent 62%);transform:translate(-50%,-50%);will-change:transform}
+.aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:520px;height:520px;background:#1c2b66;left:-8%;top:10%}
+.aurora i:nth-child(2){width:460px;height:460px;background:#7a4a10;right:-6%;top:30%;animation-duration:22s;animation-delay:-6s}
+.aurora i:nth-child(3){width:320px;height:320px;background:#3a2a6b;left:45%;bottom:-8%;animation-duration:26s}
+@keyframes drift{to{transform:translate(60px,-50px) scale(1.15)}}
+main,footer,nav{position:relative;z-index:1}
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:transform .45s var(--ease),background .3s;}
+nav.solid{background:rgba(10,12,18,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.hide{transform:translateY(-100%)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.03em}
+.logo i{color:var(--brass);font-style:normal}
+nav ul{display:flex;gap:30px;list-style:none;font-size:.85rem;font-weight:600}
+nav ul a{color:var(--mute);position:relative;transition:color .2s}
+nav ul a::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--brass);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+nav ul a:hover{color:var(--bone)}nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
 
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 50px;position:relative}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font-size:.82rem;font-weight:600;color:#cfcbc2;width:max-content;background:rgba(255,255,255,.03)}
+.pill b{width:8px;height:8px;border-radius:50%;background:var(--brass);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,176,64,.6)}100%{box-shadow:0 0 0 12px rgba(224,176,64,0)}}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(3rem,10.5vw,8.8rem);line-height:.95;letter-spacing:-.045em;margin-top:28px}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:block;transform:translateY(110%);animation:up 1s var(--ease) forwards}
+.ln:nth-child(2)>span{animation-delay:.12s}.ln:nth-child(3)>span{animation-delay:.24s}
+@keyframes up{to{transform:none}}
+.swap{color:transparent;-webkit-text-stroke:2px var(--brass);display:inline-block;transition:transform .5s var(--ease),opacity .5s}
+.swap.out{transform:translateY(-40%);opacity:0}
+.lead{max-width:540px;margin-top:36px;font-size:1.12rem;color:#cfcbc2;opacity:0;animation:fade 1s .7s forwards}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;opacity:0;animation:fade 1s .9s forwards}
+@keyframes fade{to{opacity:1}}
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid var(--line);transition:background .3s,border-color .3s,color .3s,transform .25s var(--ease);will-change:transform}
+.btn:hover{border-color:var(--bone)}
+.btn.main{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+.btn.main:hover{background:var(--bone);border-color:var(--bone)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:70px;border-top:1px solid var(--line);opacity:0;animation:fade 1s 1.1s forwards}
+.facts div{padding:20px 16px 0 0}
+.facts dt{font-size:.78rem;color:var(--mute)}
+.facts dd{font-family:var(--display);font-weight:500;font-size:1.15rem}
+.scroll{position:absolute;right:28px;bottom:40px;width:1px;height:70px;background:var(--line);overflow:hidden}
+.scroll::after{content:"";position:absolute;left:0;top:-30px;width:1px;height:30px;background:var(--brass);animation:fall 2s infinite}
+@keyframes fall{to{top:70px}}
 
-    <!-- Tailwind Config for Custom Colors & Fonts -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        gold: {
-                            400: '#facc15',
-                            500: '#d4af37',
-                            600: '#b49126',
-                        },
-                        dark: '#050505'
-                    }
-                }
-            }
-        }
-    </script>
+/* marquee */
+.marq{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:rgba(255,255,255,.015)}
+.track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+.track span{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3.6vw,2.8rem);letter-spacing:-.03em;padding-right:40px;white-space:nowrap;display:flex;align-items:center;gap:40px}
+.track span::after{content:"✦";color:var(--brass);font-size:.9rem}
+.track span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--bone)}
+@keyframes slide{to{transform:translateX(-50%)}}
 
-    <style>
-        body {
-            background-color: #050505;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(23, 37, 84, 0.4) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(113, 63, 18, 0.3) 0%, transparent 40%);
-            background-attachment: fixed;
-            color: #f8fafc;
-        }
+/* sections */
+section.s{padding:120px 0}
+.head{display:grid;grid-template-columns:240px 1fr;gap:40px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.8vw,2.8rem);letter-spacing:-.035em;line-height:1.1}
+.sub{color:var(--mute);margin-top:12px;font-size:.95rem}
+.about p{font-size:clamp(1.2rem,2.3vw,1.7rem);line-height:1.5;color:#e4e0d6;max-width:780px}
+.about p+p{margin-top:22px;color:var(--mute)}
+.about em{font-style:normal;color:var(--brass)}
 
-        /* PREMIUM GLASSMORPHISM CARD */
-        .glass-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+/* journey */
+.tl{margin-top:56px;position:relative;padding-left:40px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.tl::after{content:"";position:absolute;left:5px;top:6px;width:1px;height:var(--p,0%);background:var(--brass)}
+.item{position:relative;display:grid;grid-template-columns:260px 1fr;gap:36px;padding:0 0 56px}
+.item:last-child{padding-bottom:0}
+.item::before{content:"";position:absolute;left:-40px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:1px solid var(--mute);transition:.5s var(--ease)}
+.item.on::before{background:var(--brass);border-color:var(--brass);box-shadow:0 0 0 7px rgba(224,176,64,.15)}
+.item h3{font-family:var(--display);font-weight:800;font-size:1.45rem;letter-spacing:-.02em;line-height:1.2}
+.role{color:var(--brass);font-weight:600;font-size:.9rem;margin-top:4px}
+.item p{color:#bdb9b0;max-width:560px}
+.more{display:inline-block;margin-top:44px;font-weight:600;border-bottom:1px solid var(--brass);padding-bottom:2px}
 
-        .glass-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(212, 175, 55, 0.4);
-            box-shadow: 0 40px 80px rgba(212, 175, 55, 0.15);
-        }
+/* do */
+.do{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:56px}
+.card{position:relative;padding:40px 34px;border-radius:24px;background:var(--ink2);border:1px solid var(--line);overflow:hidden;transition:transform .4s var(--ease),border-color .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(224,176,64,.16),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover{border-color:rgba(224,176,64,.4);transform:translateY(-6px)}
+.card:hover::before{opacity:1}
+.card h3,.card p{position:relative}
+.card h3{font-family:var(--display);font-weight:800;font-size:1.6rem;letter-spacing:-.02em;margin-bottom:10px}
+.card p{color:#bdb9b0}
 
-        /* UTILITIES */
-        .text-gradient {
-            background: linear-gradient(to right, #facc15, #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+/* ideas */
+.ideas{margin-top:50px;border-top:1px solid var(--line)}
+.idea{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.idea::before{content:"";position:absolute;inset:0;background:var(--brass);transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
+.idea:hover::before{transform:scaleY(1)}
+.idea b,.idea span{position:relative;transition:color .3s,padding .5s var(--ease)}
+.idea b{font-family:var(--display);font-weight:800;font-size:clamp(2rem,6vw,4.2rem);letter-spacing:-.04em;line-height:1}
+.idea span{color:var(--mute);max-width:320px;text-align:right;font-size:.95rem}
+.idea:hover b{color:var(--ink);padding-left:20px}
+.idea:hover span{color:var(--ink);padding-right:20px}
 
-        .gold-line {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
-        }
-        
-        .img-glow {
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
-        }
-    </style>
+/* beyond */
+.bey{display:grid;grid-template-columns:1fr 1fr;gap:50px 64px;margin-top:52px}
+.bey h3{font-family:var(--display);font-weight:800;font-size:1.3rem;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.bey h3::before{content:"";width:18px;height:2px;background:var(--brass);transition:width .5s var(--ease)}
+.bey div:hover h3::before{width:44px}
+.bey p{color:#bdb9b0}
+
+/* quote */
+.quote{padding:140px 0}
+.quote p{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6.2vw,5.2rem);line-height:1.02;letter-spacing:-.04em;max-width:980px}
+.w{display:inline-block;opacity:0;transform:translateY(40%);filter:blur(8px);transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease);transition-delay:calc(var(--i)*60ms)}
+.on .w{opacity:1;transform:none;filter:none}
+.quote .hl{color:var(--brass)}
+
+/* contact */
+.contact{padding:110px 0 100px;border-top:1px solid var(--line)}
+.contact h2{font-size:clamp(2.8rem,9vw,7rem);line-height:.95}
+.contact .sub{max-width:440px;font-size:1.05rem}
+.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.ig:hover{background:#c13584;border-color:#c13584}.wa:hover{background:#25d366;border-color:#25d366;color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mute);font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:820px){
+nav ul{display:none}.head,.item{grid-template-columns:1fr;gap:10px}
+.facts{grid-template-columns:1fr 1fr}.do,.bey{grid-template-columns:1fr}
+.idea{flex-direction:column;gap:6px}.idea span{text-align:left}
+section.s{padding:80px 0}.scroll{display:none}#glow{display:none}}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important}
+.ln>span,.lead,.cta,.facts,.rv,.w{opacity:1;transform:none;filter:none}.track{animation:none}}
+</style>
 </head>
+<body>
+<div id="bar"></div><div id="glow"></div>
 
-<body class="antialiased selection:bg-gold-500 selection:text-dark font-sans">
+<nav id="nav"><div class="wrap">
+<a href="#" class="logo">DT<i>.</i></a>
+<ul><li><a href="#about">About</a></li><li><a href="#journey">Journey</a></li><li><a href="#do">What I Do</a></li><li><a href="#contact">Contact</a></li><li><a href="opini.html">My Thoughts</a></li></ul>
+</div></nav>
 
-    <!-- STICKY NAVBAR -->
-    <nav class="fixed top-0 w-full z-50 bg-dark/60 backdrop-blur-md border-b border-white/5 transition-all">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-black text-2xl tracking-widest text-white hover:text-gold-400 transition-colors">DT.</a>
-            <div class="text-sm font-medium text-slate-400 uppercase tracking-widest">Portfolio</div>
-        </div>
-    </nav>
+<main>
+<header class="hero">
+<div class="aurora"><i></i><i></i><i></i></div>
+<div class="wrap">
+<span class="pill"><b></b>Muhammad Irfan Dwitama — DT / Dete</span>
+<h1>
+<span class="ln"><span>I tell stories.</span></span>
+<span class="ln"><span>I explore</span></span>
+<span class="ln"><span><span class="swap" id="swap">ideas.</span></span></span>
+</h1>
+<p class="lead">Saya percaya bahwa setiap orang memiliki cerita. Melalui tulisan, komunikasi, dan kreativitas, saya mencoba memahami manusia serta menghubungkan berbagai perspektif.</p>
+<div class="cta">
+<a class="btn main mag" href="https://drive.google.com/file/d/1dplivweG8RCJrKEBf_feFnEMreW5MFNb/view?usp=sharing" target="_blank" rel="noopener">Download CV</a>
+<a class="btn mag" href="opini.html">Read My Thoughts</a>
+</div>
+<dl class="facts">
+<div><dt>Kampus</dt><dd>UIN Raden Intan Lampung</dd></div>
+<div><dt>Jurusan</dt><dd>Komunikasi &amp; Penyiaran Islam</dd></div>
+<div><dt>Semester</dt><dd><span class="count" data-to="5" data-dec="0">5</span></dd></div>
+<div><dt>IPK</dt><dd><span class="count" data-to="3.85" data-dec="2">3.85</span></dd></div>
+</dl>
+</div>
+<div class="scroll"></div>
+</header>
 
-    <main class="max-w-6xl mx-auto px-6 pt-32 pb-10 overflow-hidden">
+<div class="marq" aria-hidden="true"><div class="track" id="track">
+<span>Writer</span><span>Communicator</span><span>Storyteller</span><span>Broadcaster</span><span>MC</span><span>Creative Media</span>
+</div></div>
 
-        <!-- HERO SECTION -->
-        <section data-aos="fade-up" class="min-h-[85vh] flex items-center">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Text Area -->
-                <div class="order-2 lg:order-1">
-                    <div class="inline-flex items-center gap-3 mb-6">
-                        <span class="w-10 h-[1px] bg-gold-400"></span>
-                        <p class="text-gold-400 tracking-[0.3em] text-xs font-bold uppercase">Writer • Communicator • Storyteller</p>
-                    </div>
+<section class="s about" id="about"><div class="wrap head">
+<h2 class="rv">About me</h2>
+<div>
+<p class="rv" style="--d:.1s">Saya adalah mahasiswa Komunikasi dan Penyiaran Islam yang tertarik pada dunia tulisan, media, dan cara manusia saling memahami melalui komunikasi.</p>
+<p class="rv" style="--d:.2s">Bagi saya, komunikasi bukan hanya tentang berbicara, tetapi tentang bagaimana sebuah ide dapat menemukan makna dan terhubung dengan orang lain. Saya belajar dari buku, percakapan, pengalaman organisasi, serta fenomena sosial di sekitar. <em>Rasa ingin tahu adalah awal dari sebuah karya.</em></p>
+</div></div></section>
 
-                    <h1 class="text-5xl md:text-7xl lg:text-[5rem] font-black leading-[1.1] tracking-tighter mb-6">
-                        I TELL <br/> <span class="text-gradient">STORIES.</span> <br/>
-                        I EXPLORE <br/> <span class="text-gradient">IDEAS.</span>
-                    </h1>
+<section class="s" id="journey"><div class="wrap">
+<h2 class="rv">My journey</h2><p class="sub rv">Pengalaman di media, organisasi, dan ruang kreatif.</p>
+<div class="tl" id="tl">
+<article class="item"><div><h3>Broadcaster Academy Batch 6</h3><p class="role">RRI Bandar Lampung</p></div><p>Konten Media Baru (KMB). Menjelajahi broadcasting, konten digital, media sosial, dan creative storytelling.</p></article>
+<article class="item"><div><h3>Gebyar Pelajar Lampung</h3><p class="role">Staff PSDM (Internal)</p></div><p>Belajar tentang kerja tim, manajemen event, pengembangan internal, dan membangun relasi dengan banyak orang.</p></article>
+<article class="item"><div><h3>HMJ KPI</h3><p class="role">Himpunan Mahasiswa Jurusan</p></div><p>Bertumbuh lewat kolaborasi, tanggung jawab, kepemimpinan, dan kegiatan kemahasiswaan.</p></article>
+</div>
+<a class="more" href="https://drive.google.com/file/d/1dplivweG8RCJrKEBf_feFnEMreW5MFNb/view?usp=sharing" target="_blank" rel="noopener">Lihat pengalaman lengkap di CV</a>
+</div></section>
 
-                    <p class="text-slate-300 text-lg md:text-xl leading-relaxed max-w-xl font-light mb-10">
-                        Saya percaya bahwa setiap orang memiliki cerita. Melalui tulisan, komunikasi, dan kreativitas, saya mencoba memahami manusia serta menghubungkan berbagai perspektif.
-                    </p>
+<section class="s" id="do"><div class="wrap">
+<h2 class="rv">What I do</h2>
+<div class="do">
+<div class="card rv"><h3>Writing</h3><p>Menulis artikel dan opini mengenai isu sosial, budaya, politik, serta berbagai fenomena yang menarik untuk dipahami.</p></div>
+<div class="card rv" style="--d:.1s"><h3>Communication</h3><p>Mengembangkan kemampuan komunikasi melalui public speaking, MC formal maupun non formal, serta broadcasting.</p></div>
+<div class="card rv"><h3>Creative Media</h3><p>Membuat desain visual seperti poster, feed media sosial, dokumentasi, dan konten kreatif.</p></div>
+<div class="card rv" style="--d:.1s"><h3>Event &amp; Volunteer</h3><p>Senang mengeksplor dunia event, konser, dan volunteer karena setiap acara memiliki cerita di baliknya.</p></div>
+</div></div></section>
 
-                    <!-- Tags -->
-                    <div class="flex flex-wrap gap-3 mb-10">
-                        <span class="px-5 py-2 text-sm font-semibold rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400"><i class="ph ph-pen-nib mr-2"></i>Writer</span>
-                        <span class="px-5 py-2 text-sm font-semibold rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400"><i class="ph ph-broadcast mr-2"></i>Media</span>
-                        <span class="px-5 py-2 text-sm font-semibold rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400"><i class="ph ph-users-three mr-2"></i>Communication</span>
-                    </div>
+<section class="s"><div class="wrap">
+<h2 class="rv">Ideas I explore</h2>
+<div class="ideas">
+<div class="idea rv"><b>History</b><span>Belajar dari masa lalu untuk dunia hari ini.</span></div>
+<div class="idea rv"><b>Social &amp; Culture</b><span>Mengamati manusia, budaya, dan perubahan.</span></div>
+<div class="idea rv"><b>Politics</b><span>Memahami ide, kekuasaan, dan percakapan publik.</span></div>
+<div class="idea rv"><b>Lifestyle</b><span>Melihat tren, gaya hidup, dan perkembangan generasi.</span></div>
+</div></div></section>
 
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-wrap gap-4">
-                        <!-- LINK CV DI SINI -->
-                        <a href="https://drive.google.com/file/d/1dplivweG8RCJrKEBf_feFnEMreW5MFNb/view?usp=sharing" target="_blank" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-gold-400 to-gold-600 text-dark font-bold hover:scale-105 active:scale-95 transition-transform flex items-center gap-2">
-                            <i class="ph ph-download-simple text-xl"></i> Download CV
-                        </a>
-                        <a href="opini.html" class="px-8 py-3.5 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 hover:border-white/40 transition-all flex items-center gap-2">
-                            <i class="ph ph-book-open-text text-xl"></i> Read My Thoughts
-                        </a>
-                    </div>
-                </div>
+<section class="s"><div class="wrap">
+<h2 class="rv">Beyond the screen</h2>
+<div class="bey">
+<div class="rv"><h3>Books</h3><p>Membaca adalah cara saya bertemu dengan pemikiran orang lain. Setiap buku memberi perspektif baru tentang manusia, sejarah, dan kehidupan.</p></div>
+<div class="rv" style="--d:.1s"><h3>Coffee &amp; Conversation</h3><p>Kopi bagi saya bukan hanya minuman, tetapi ruang kecil untuk berpikir, menulis, dan berdiskusi.</p></div>
+<div class="rv"><h3>Good Discourse</h3><p>Diskusi terbaik bukan tentang memenangkan argumen, tetapi memahami cara berpikir seseorang.</p></div>
+<div class="rv" style="--d:.1s"><h3>Open World Games</h3><p>Menjelajah dunia baru: menemukan cerita, pilihan, dan pengalaman yang berbeda.</p></div>
+</div></div></section>
 
-                <!-- Profile Card -->
-                <div class="order-1 lg:order-2 flex justify-center lg:justify-end" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="glass-card rounded-[40px] p-8 w-full max-w-md relative group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-gold-500/10 to-transparent rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <img src="https://i.ibb.co.com/YFMQfwym/photo.jpg" alt="Muhammad Irfan Dwitama" class="rounded-[30px] w-full aspect-[4/5] object-cover img-glow grayscale hover:grayscale-0 transition-all duration-700">
-                        
-                        <div class="mt-8 relative z-10">
-                            <h2 class="text-3xl font-black text-white">Muhammad Irfan Dwitama</h2>
-                            <p class="text-gold-400 mt-2 font-bold tracking-wide">DT / Dete</p>
-                            
-                            <div class="gold-line my-6"></div>
-                            
-                            <ul class="space-y-4 text-slate-300 font-medium">
-                                <li class="flex items-center gap-3"><i class="ph-fill ph-graduation-cap text-gold-400 text-xl"></i> UIN Raden Intan Lampung</li>
-                                <li class="flex items-center gap-3"><i class="ph-fill ph-books text-gold-400 text-xl"></i> Komunikasi & Penyiaran Islam</li>
-                                <li class="flex items-center gap-3"><i class="ph-fill ph-student text-gold-400 text-xl"></i> Semester 5</li>
-                                <li class="flex items-center gap-3"><i class="ph-fill ph-star text-gold-400 text-xl"></i> IPK 3.85</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="quote"><div class="wrap"><p id="quote" data-split>Every person carries a story. <span class="hl">Every idea deserves a space to be heard.</span></p></div></section>
 
-        <div class="gold-line my-32 opacity-50"></div>
+<section class="contact" id="contact"><div class="wrap">
+<h2 class="rv">Let’s connect.</h2>
+<p class="sub rv">Untuk kolaborasi, proyek kreatif, atau percakapan yang bermakna.</p>
+<div class="links rv">
+<a class="btn main mag" href="opini.html">My Thoughts</a>
+<a class="btn ig mag" href="https://instagram.com/mirfanndete" target="_blank" rel="noopener">Instagram</a>
+<a class="btn wa mag" href="https://wa.me/6285925775266" target="_blank" rel="noopener">WhatsApp</a>
+</div></div></section>
+</main>
 
-        <!-- ABOUT SECTION -->
-        <section data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-black mb-12 flex items-center gap-4">
-                <i class="ph-fill ph-user-focus text-gold-500"></i> About Me
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass-card rounded-[35px] p-10">
-                    <p class="text-lg text-slate-300 leading-relaxed font-light">
-                        Saya adalah mahasiswa Komunikasi dan Penyiaran Islam yang memiliki ketertarikan pada dunia tulisan, media, dan cara manusia saling memahami melalui komunikasi.
-                    </p>
-                    <p class="text-lg text-slate-300 leading-relaxed font-light mt-6">
-                        Bagi saya, komunikasi bukan hanya tentang berbicara, tetapi tentang bagaimana sebuah ide dapat menemukan makna dan terhubung dengan orang lain.
-                    </p>
-                </div>
+<footer><div class="wrap"><span>DT. / Dete — Writer, Communicator, Storyteller</span><span>© 2026 Muhammad Irfan Dwitama. All rights reserved.</span></div></footer>
 
-                <div class="glass-card rounded-[35px] p-10 relative overflow-hidden">
-                    <i class="ph-fill ph-quotes text-8xl text-white/5 absolute -top-4 -right-4"></i>
-                    <h3 class="text-2xl font-bold text-gradient mb-6 relative z-10">My Perspective</h3>
-                    <p class="text-lg text-slate-300 leading-relaxed font-light relative z-10">
-                        Saya menikmati proses belajar dari buku, percakapan, pengalaman organisasi, serta berbagai fenomena sosial yang terjadi di sekitar.
-                    </p>
-                    <p class="text-lg text-slate-300 leading-relaxed font-light mt-6 font-medium italic relative z-10">
-                        "Saya percaya rasa ingin tahu adalah awal dari sebuah karya."
-                    </p>
-                </div>
-            </div>
-        </section>
+<script>
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-        <div class="gold-line my-32 opacity-50"></div>
+/* scroll: progress, nav hide, timeline fill */
+const bar=$('#bar'),nav=$('#nav'),tl=$('#tl');let last=0;
+addEventListener('scroll',()=>{
+  const h=document.documentElement,y=h.scrollTop;
+  bar.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';
+  nav.classList.toggle('solid',y>40);nav.classList.toggle('hide',y>last&&y>300);last=y;
+  const r=tl.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.65-r.top)/r.height));
+  tl.style.setProperty('--p',p*100+'%');
+},{passive:true});
 
-        <!-- JOURNEY SECTION -->
-        <section data-aos="fade-up">
-            <div class="mb-12">
-                <h2 class="text-4xl md:text-5xl font-black flex items-center gap-4">
-                    <i class="ph-fill ph-path text-gold-500"></i> My Journey
-                </h2>
-                <p class="text-slate-400 mt-4 text-lg">A glimpse of my experiences in media, organization, and creative spaces.</p>
-            </div>
+/* cursor glow + card spotlight */
+const glow=$('#glow');let gx=0,gy=0,tx=0,ty=0;
+addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});
+if(!calm)(function loop(){gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;glow.style.transform=`translate(${gx-260}px,${gy-260}px)`;requestAnimationFrame(loop)})();
+$$('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}));
 
-            <div class="space-y-6">
-                <!-- Journey Item 1 -->
-                <div class="glass-card rounded-[30px] p-8 md:p-10 border-l-4 border-l-gold-500 flex flex-col md:flex-row md:items-center gap-6">
-                    <div class="md:w-32">
-                        <span class="text-gold-400 font-bold text-5xl opacity-30">01</span>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold">Broadcaster Academy Batch 6</h3>
-                        <p class="text-gold-400 font-medium mt-1">RRI Bandar Lampung</p>
-                        <p class="text-slate-300 mt-4 leading-relaxed font-light">Konten Media Baru (KMB). Exploring broadcasting, digital content, social media, and creative storytelling.</p>
-                    </div>
-                </div>
+/* magnetic buttons */
+if(!calm)$$('.mag').forEach(b=>{
+  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});
+  b.addEventListener('pointerleave',()=>b.style.transform='');
+});
 
-                <!-- Journey Item 2 -->
-                <div class="glass-card rounded-[30px] p-8 md:p-10 border-l-4 border-l-gold-500 flex flex-col md:flex-row md:items-center gap-6">
-                    <div class="md:w-32">
-                        <span class="text-gold-400 font-bold text-5xl opacity-30">02</span>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold">Gebyar Pelajar Lampung</h3>
-                        <p class="text-gold-400 font-medium mt-1">Staff PSDM (Internal)</p>
-                        <p class="text-slate-300 mt-4 leading-relaxed font-light">Learning about teamwork, event management, internal development, and building connections with people.</p>
-                    </div>
-                </div>
+/* rotating word */
+const words=['ideas.','perspectives.','conversations.','possibilities.'],sw=$('#swap');let wi=0;
+if(!calm)setInterval(()=>{sw.classList.add('out');setTimeout(()=>{wi=(wi+1)%words.length;sw.textContent=words[wi];sw.classList.remove('out')},500)},2800);
 
-                <!-- Journey Item 3 -->
-                <div class="glass-card rounded-[30px] p-8 md:p-10 border-l-4 border-l-gold-500 flex flex-col md:flex-row md:items-center gap-6">
-                    <div class="md:w-32">
-                        <span class="text-gold-400 font-bold text-5xl opacity-30">03</span>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold">Himpunan Mahasiswa Jurusan (HMJ) KPI</h3>
-                        <p class="text-gold-400 font-medium mt-1">Organization Experience</p>
-                        <p class="text-slate-300 mt-4 leading-relaxed font-light">Growing through collaboration, responsibility, leadership, and student activities.</p>
-                    </div>
-                </div>
-            </div>
+/* marquee: duplicate content for seamless loop */
+const tr=$('#track');tr.innerHTML+=tr.innerHTML;
 
-            <div class="mt-12 text-center">
-                <!-- LINK CV DI SINI JUGA -->
-                <a href="https://drive.google.com/file/d/1dplivweG8RCJrKEBf_feFnEMreW5MFNb/view?usp=sharing" target="_blank" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold transition-all hover:scale-105">
-                    View Complete Experience <i class="ph ph-arrow-right"></i>
-                </a>
-            </div>
-        </section>
+/* split quote into words */
+const q=$('#quote');let n=0;
+(function split(node){[...node.childNodes].forEach(c=>{
+  if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim()){f.append(t)}else{const s=document.createElement('span');s.className='w';s.style.setProperty('--i',n++);s.textContent=t;f.append(s)}});c.replaceWith(f)}
+  else split(c)})})(q);
 
-        <div class="gold-line my-32 opacity-50"></div>
+/* counters */
+function count(el){const to=+el.dataset.to,d=+el.dataset.dec;if(calm)return;let t0;
+  (function step(t){t0??=t;const k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,3);el.textContent=(to*e).toFixed(d);if(k<1)requestAnimationFrame(step)})(performance.now())}
 
-        <!-- WHAT I DO SECTION -->
-        <section data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-black mb-12 flex items-center gap-4">
-                <i class="ph-fill ph-briefcase text-gold-500"></i> What I Do
-            </h2>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass-card rounded-[35px] p-10">
-                    <div class="w-16 h-16 rounded-full bg-gold-500/10 flex items-center justify-center mb-6">
-                        <i class="ph-fill ph-pencil-line text-4xl text-gold-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Writing</h3>
-                    <p class="text-slate-300 leading-relaxed font-light">Menulis artikel dan opini mengenai isu sosial, budaya, politik, serta berbagai fenomena yang menarik untuk dipahami.</p>
-                </div>
-
-                <div class="glass-card rounded-[35px] p-10">
-                    <div class="w-16 h-16 rounded-full bg-gold-500/10 flex items-center justify-center mb-6">
-                        <i class="ph-fill ph-microphone-stage text-4xl text-gold-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Communication</h3>
-                    <p class="text-slate-300 leading-relaxed font-light">Mengembangkan kemampuan komunikasi melalui public speaking, MC formal maupun non formal, serta broadcasting.</p>
-                </div>
-
-                <div class="glass-card rounded-[35px] p-10">
-                    <div class="w-16 h-16 rounded-full bg-gold-500/10 flex items-center justify-center mb-6">
-                        <i class="ph-fill ph-palette text-4xl text-gold-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Creative Media</h3>
-                    <p class="text-slate-300 leading-relaxed font-light">Membuat desain visual seperti poster, feed media sosial, dokumentasi, dan konten kreatif.</p>
-                </div>
-
-                <div class="glass-card rounded-[35px] p-10">
-                    <div class="w-16 h-16 rounded-full bg-gold-500/10 flex items-center justify-center mb-6">
-                        <i class="ph-fill ph-ticket text-4xl text-gold-400"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Event & Volunteer</h3>
-                    <p class="text-slate-300 leading-relaxed font-light">Senang mengeksplor dunia event, konser, dan volunteer karena setiap acara memiliki cerita di baliknya.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="gold-line my-32 opacity-50"></div>
-
-        <!-- CREATIVE ARCHIVE & IDEAS -->
-        <section data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-black mb-12 flex items-center gap-4">
-                <i class="ph-fill ph-lightbulb text-gold-500"></i> Ideas I Explore
-            </h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                <div class="glass-card rounded-3xl p-6 text-center hover:-translate-y-2 transition-transform">
-                    <i class="ph-fill ph-scroll text-3xl text-gold-400 mb-3"></i>
-                    <h3 class="text-lg font-bold">History</h3>
-                    <p class="text-slate-400 mt-2 text-xs font-light">Belajar dari masa lalu untuk dunia hari ini.</p>
-                </div>
-                <div class="glass-card rounded-3xl p-6 text-center hover:-translate-y-2 transition-transform">
-                    <i class="ph-fill ph-globe-hemisphere-east text-3xl text-gold-400 mb-3"></i>
-                    <h3 class="text-lg font-bold">Social & Culture</h3>
-                    <p class="text-slate-400 mt-2 text-xs font-light">Mengamati manusia, budaya, dan perubahan.</p>
-                </div>
-                <div class="glass-card rounded-3xl p-6 text-center hover:-translate-y-2 transition-transform">
-                    <i class="ph-fill ph-bank text-3xl text-gold-400 mb-3"></i>
-                    <h3 class="text-lg font-bold">Politics</h3>
-                    <p class="text-slate-400 mt-2 text-xs font-light">Memahami ide, kekuasaan, percakapan publik.</p>
-                </div>
-                <div class="glass-card rounded-3xl p-6 text-center hover:-translate-y-2 transition-transform">
-                    <i class="ph-fill ph-sparkle text-3xl text-gold-400 mb-3"></i>
-                    <h3 class="text-lg font-bold">Lifestyle</h3>
-                    <p class="text-slate-400 mt-2 text-xs font-light">Melihat tren, gaya hidup, perkembangan generasi.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="gold-line my-32 opacity-50"></div>
-
-        <!-- BEYOND SCREEN -->
-        <section data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-black mb-12 text-center">Beyond The Screen</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass-card rounded-[35px] p-8 flex gap-6">
-                    <i class="ph-fill ph-books text-4xl text-gold-500 shrink-0"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3">Books</h3>
-                        <p class="text-slate-300 leading-relaxed font-light text-sm">Membaca adalah cara saya bertemu dengan pemikiran orang lain. Setiap buku memberikan perspektif baru tentang manusia, sejarah, dan kehidupan.</p>
-                    </div>
-                </div>
-                
-                <div class="glass-card rounded-[35px] p-8 flex gap-6">
-                    <i class="ph-fill ph-coffee text-4xl text-gold-500 shrink-0"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3">Coffee & Conversation</h3>
-                        <p class="text-slate-300 leading-relaxed font-light text-sm">Saya menikmati kopi bukan hanya sebagai minuman, tetapi sebagai ruang kecil untuk berpikir, menulis, dan berdiskusi.</p>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-[35px] p-8 flex gap-6">
-                    <i class="ph-fill ph-chats text-4xl text-gold-500 shrink-0"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3">Good Discourse</h3>
-                        <p class="text-slate-300 leading-relaxed font-light text-sm">Saya menyukai percakapan yang membuka perspektif. Diskusi terbaik bukan tentang memenangkan argumen, tetapi memahami cara berpikir seseorang.</p>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-[35px] p-8 flex gap-6">
-                    <i class="ph-fill ph-game-controller text-4xl text-gold-500 shrink-0"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3">Open World Games</h3>
-                        <p class="text-slate-300 leading-relaxed font-light text-sm">Menikmati game adventure open world seperti menjelajah dunia baru: menemukan cerita, pilihan, dan pengalaman berbeda.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="my-20"></div>
-
-        <!-- PHILOSOPHY / QUOTE -->
-        <section data-aos="zoom-in" class="glass-card rounded-[40px] p-12 text-center relative overflow-hidden">
-            <div class="absolute w-64 h-64 bg-gold-500/20 blur-[100px] rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-            <i class="ph-fill ph-quotes text-6xl text-gold-500 mb-6 mx-auto block opacity-50"></i>
-            <p class="text-3xl md:text-4xl font-light italic text-white leading-tight max-w-3xl mx-auto relative z-10">
-                "Every person carries a story.<br>
-                <span class="text-gradient font-semibold">Every idea deserves a space to be heard.</span>"
-            </p>
-        </section>
-
-        <div class="gold-line my-32 opacity-50"></div>
-
-        <!-- CONTACT -->
-        <section data-aos="fade-up" class="text-center pb-20">
-            <h2 class="text-5xl font-black mb-6">Let's Connect</h2>
-            <p class="text-slate-400 text-lg mb-10 max-w-lg mx-auto font-light">For collaboration, creative projects, or meaningful conversations.</p>
-            
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="opini.html" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold transition-all flex items-center gap-2">
-                    <i class="ph-fill ph-book-open-text text-xl text-gold-400"></i> My Thoughts
-                </a>
-                <a href="https://instagram.com/mirfanndete" target="_blank" class="px-8 py-4 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 hover:opacity-90 text-white font-semibold transition-all flex items-center gap-2">
-                    <i class="ph-fill ph-instagram-logo text-xl"></i> Instagram
-                </a>
-                <a href="https://wa.me/6285925775266" target="_blank" class="px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#1fa952] text-white font-semibold transition-all flex items-center gap-2">
-                    <i class="ph-fill ph-whatsapp-logo text-xl"></i> WhatsApp
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="text-center text-slate-500 py-10 border-t border-white/5 bg-dark relative z-10">
-        <p class="font-bold text-white mb-2 tracking-wider">DT. / DETE</p>
-        <p class="text-sm font-light">Writer • Communicator • Storyteller</p>
-        <p class="text-xs mt-6 opacity-50">© 2026 Muhammad Irfan Dwitama. All rights reserved.</p>
-    </footer>
-
-    <!-- Initialize AOS -->
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
-        });
-    </script>
+/* reveal on view */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv,.item,.quote p').forEach(el=>io.observe(el));
+$$('.count').forEach(el=>{el.textContent=(0).toFixed(+el.dataset.dec);setTimeout(()=>count(el),1300)});
+</script>
 </body>
 </html>
