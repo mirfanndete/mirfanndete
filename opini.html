@@ -103,6 +103,10 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(3rem,10vw,8rem);li
 .body i{color:#e9e4d9}
 .body>p:first-of-type::first-letter{font-family:var(--display);font-weight:800;font-size:4.6rem;line-height:.8;float:left;padding:8px 14px 0 0;color:var(--brass)}
 
+/* sub-judul esai */
+.sub{display:flex;align-items:baseline;gap:14px;margin:64px 0 24px;font-family:var(--display);font-weight:800;font-size:clamp(1.35rem,2.8vw,1.8rem);letter-spacing:-.02em;line-height:1.2}
+.sub span{color:var(--brass);font-size:1rem;border:1px solid rgba(224,176,64,.4);border-radius:999px;min-width:38px;height:38px;display:inline-grid;place-items:center;flex:none}
+
 /* kutipan / catatan */
 .note{margin:46px 0;padding:30px 32px;border-radius:22px;background:var(--ink2);border:1px solid var(--line);border-left:3px solid var(--brass);position:relative;overflow:hidden}
 .note::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,0%) var(--my,0%),rgba(224,176,64,.14),transparent 60%);opacity:0;transition:opacity .3s}
@@ -111,6 +115,13 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(3rem,10vw,8rem);li
 .note p{position:relative;margin:0!important;font-size:1.1rem!important;color:#e4e0d6!important}
 .pull{margin:56px 0;font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.15;letter-spacing:-.03em;padding-left:26px;border-left:3px solid var(--brass)}
 .pull span{color:var(--brass)}
+
+/* statistik */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:46px 0}
+.stat{padding:26px;border-radius:20px;background:var(--ink2);border:1px solid var(--line);transition:border-color .3s,transform .4s var(--spring)}
+.stat:hover{border-color:rgba(224,176,64,.5);transform:translateY(-5px)}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em;line-height:1;color:var(--brass)}
+.stat span{display:block;margin-top:10px;font-size:.88rem;color:#bdb9b0;line-height:1.5}
 
 /* ahli */
 .experts{margin:46px 0}
@@ -142,7 +153,8 @@ footer{padding:26px 0;color:var(--mute);font-size:.8rem;text-align:center;border
 .li{grid-template-columns:1fr;gap:4px}.li .tg{min-width:0}
 .ring{width:80px;height:80px}.plus,#glow{display:none}
 .body>p:first-of-type::first-letter{font-size:3.6rem}
-.note{padding:24px 22px}.art{padding-top:80px}}
+.note{padding:24px 22px}.art{padding-top:80px}
+.stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -169,6 +181,7 @@ footer{padding:26px 0;color:var(--mute);font-size:.8rem;text-align:center;border
 <div class="list">
 <a href="#nadiem" class="li rv"><span class="tg">Hukum &amp; Politik</span><b>Tuntutan 18 Tahun Nadiem Makarim: Keadilan atau Teater Kriminalisasi?</b><span class="mn">3 menit baca</span></a>
 <a href="#struktural" class="li rv" style="--d:.12s"><span class="tg">Arsip Tulisan</span><b>Kemiskinan Struktural dan Matinya Keadilan di Negeri Para Bedebah</b><span class="mn">2 menit baca</span></a>
+<a href="#bordir" class="li rv" style="--d:.24s"><span class="tg">Esai Ekonomi</span><b>Industri Bordir sebagai Tombak Perekonomian Kota Tasikmalaya</b><span class="mn">6 menit baca</span></a>
 </div>
 </div></section>
 
@@ -223,6 +236,55 @@ footer{padding:26px 0;color:var(--mute);font-size:.8rem;text-align:center;border
 <p class="rv">Perubahan tidak cukup hanya dengan kritik. Dibutuhkan sistem yang transparan, pengawasan yang kuat, serta masyarakat yang aktif menjaga demokrasi.</p>
 
 <div class="note rv"><h3>💡 Kesimpulan</h3><p>Keadilan membutuhkan keberanian untuk memperbaiki sistem, bukan hanya mencari siapa yang harus disalahkan. Masyarakat yang kritis dan pemerintah yang bertanggung jawab menjadi fondasi penting bagi perubahan.</p></div>
+</div>
+</div></div></article>
+
+<!-- ARTIKEL 3 : ESAI EKONOMI -->
+<article class="art" id="bordir"><div class="wrap"><div class="narrow">
+<div class="meta rv"><span class="chip">Esai Ekonomi</span><span class="chip alt">Ditulis semasa SMA</span></div>
+<h2 data-split>Industri Bordir sebagai Tombak Perekonomian Kota Tasikmalaya</h2>
+<div class="by rv"><span>Ditulis oleh <b>Muhammad Irfan Dwitama</b></span><span>⏱ Estimasi baca 6 menit</span></div>
+
+<div class="body">
+
+<h3 class="sub rv"><span>A</span>Latar Belakang</h3>
+
+<p class="rv">Abad ke-21 adalah era ketika teknologi dan inovasi berkembang dengan sangat cepat. Sebagai generasi muda Kota Tasikmalaya, menyadari hal ini adalah sebuah keharusan agar kita dapat melihat peluang untuk menjadikan kota ini mampu bersaing dengan kota-kota besar lainnya di Indonesia, bahkan di dunia. Tasikmalaya adalah kota kecil di Jawa Barat yang telah menjelma menjadi oasis industri kreatif. Lewat sentuhan benang dan sulaman para pengrajinnya, kota ini menjadikan seni bordir sebagai simbol kebanggaan sekaligus sumber penghidupan masyarakatnya.</p>
+<p class="rv">Dikenal dengan sebutan "Mutiara dari Priangan Timur", Tasikmalaya memang bukan kota besar seperti Jakarta atau Bandung, tetapi menyimpan potensi luar biasa di bidang industri kreatif. Bordir telah menjadi tulang punggung ekonomi kota ini. Agar kota ini terus bersinar dan membawa kesejahteraan bagi warganya, dibutuhkan inovasi dan adaptasi terhadap era digital. Esai ini membahas bagaimana industri kreatif bordir dapat menjadi tombak pergerakan ekonomi Tasikmalaya dengan beradaptasi pada ekonomi digital, yang telah membuka peluang besar bagi pelaku UMKM untuk melebarkan sayap, tidak hanya di pasar lokal, tetapi juga nasional dan internasional.</p>
+<p class="rv">Namun, seperti benang yang harus dijalin dengan teliti, ada hambatan yang perlu diatasi, mulai dari pemasaran hingga teknologi. Keberhasilan industri kreatif di masa depan akan bergantung pada kemampuan pelaku UMKM beradaptasi dengan ekonomi digital.</p>
+
+<p class="pull rv">"Menggabungkan keindahan tradisional bordir <span>dengan kecanggihan digital.</span>"</p>
+
+<p class="rv">Dengan cara itu, para pengusaha bordir tidak hanya memajukan perekonomian Kota Tasikmalaya, tetapi juga mengangkat keindahan kain sulam kota ini ke tingkat nasional dan internasional.</p>
+
+<h3 class="sub rv"><span>B</span>Isi</h3>
+
+<p class="rv">Ketika mendengar kata "bordir", yang terbayang di benak banyak orang biasanya adalah kain tradisional. Asumsi ini wajar, sebab di Indonesia bordir adalah keahlian khas daerah yang diwariskan turun-temurun dan lazim menjadi industri rumahan. Dalam evolusinya, bordir kini memainkan peran signifikan di dunia mode, baik busana tradisional maupun kontemporer.</p>
+<p class="rv">Bordir dapat diartikan sebagai kegiatan menghias kain dengan teknik sulam, dengan menitikberatkan pada komposisi warna dan keindahan, menggunakan alat jahit, baik komputer maupun non-komputer. Kata "bordir" berasal dari istilah Inggris <i>embroidery</i> yang berarti sulaman, dan dalam bahasa Belanda disebut <i>borduur</i>, yakni seni membuat sesuatu menjadi lebih indah. Menurut Kamus Besar Bahasa Indonesia (2012:207), bordir adalah hiasan dari benang yang dijahitkan pada kain, atau disebut juga sulaman. Sementara menurut Goet Poespa (2005:07), bordir adalah elemen untuk mengubah penampilan kain dengan aneka setik. Jika ragam hias dibuat dengan tangan, disebut sulam, sedangkan jika dibuat dengan mesin, disebut bordir.</p>
+<p class="rv">Di dunia, seni bordir telah dikenal sejak lama. Siberia sudah mengenalnya sejak sekitar 5000 SM, sementara Tiongkok mengenal teknik membordir sekitar 3500 SM melalui temuan pakaian berhias benang sutra. Di Indonesia, teknik ini dibawa oleh pedagang Tiongkok, diteruskan oleh pedagang India, lalu menyebar ke seluruh Nusantara. Pada masa itu bordir hanya diperuntukkan bagi inisial kerajaan serta busana bangsawan dan ningrat. Awalnya membordir hanya dilakukan dengan tangan, lalu seiring zaman berkembang menjadi lebih modern dan efisien.</p>
+
+<div class="stats">
+<div class="stat rv"><b>1.465</b><span>unit usaha bordir di seluruh Kota Tasikmalaya</span></div>
+<div class="stat rv" style="--d:.12s"><b>1.056</b><span>unit usaha berada di Kecamatan Kawalu, pusat bordir Tasikmalaya</span></div>
+</div>
+
+<p class="rv">Saat ini Tasikmalaya merupakan salah satu sentra pengrajin bordir terbesar di Indonesia, dengan pusatnya di daerah Kawalu. Menurut data Dinas Koperasi, UMKM, Perindustrian dan Perdagangan Kota Tasikmalaya, Kawalu memiliki industri kreatif bordir terbanyak, yakni 1.056 unit usaha dari total 1.465 unit usaha bordir di kota ini. Di Kawalu, hampir setiap rumah dan sebagian besar warganya berprofesi sebagai pengrajin atau pengusaha bordir. Hal ini berpengaruh besar pada perekonomian kota dan menunjukkan betapa besar minat warga terhadap industri ini.</p>
+<p class="rv">Pondok Pesantren Al-Amin, sekolah penulis, tidak terkecuali. Pesantren ini telah mencapai kemandirian ekonomi yang signifikan, dengan fasilitas dan sumber daya yang murni didukung oleh usaha bordirnya. Hal ini tercatat dalam buku <i>Top 10 Ekosantri Pionir Kemandirian Pesantren</i> yang diterbitkan Puslitbang Pendidikan dan Keagamaan, Badan Litbang dan Diklat Kementerian Agama pada 2017. Buku itu menjelaskan bagaimana Al-Amin, yang lahir dari sebuah pabrik bordir, terus memberdayakan sumber daya manusia di Kawalu untuk mengembangkan keterampilan di bidang industri kreatif bordir.</p>
+<p class="rv">Ini menunjukkan betapa signifikannya industri bordir bagi Tasikmalaya dan sejuta potensi ekonomi yang bisa hadir darinya. Industri kreatif Tasikmalaya bahkan didukung oleh Kementerian Pariwisata dan Ekonomi Kreatif yang menjadikan kota ini tujuan program Kota Kreatif.</p>
+
+<h3 class="sub rv"><span>C</span>Tantangan dalam Mengembangkan Industri Bordir</h3>
+
+<p class="rv">Berbicara tentang ekonomi tidak lepas dari urusan dagang, tawar-menawar, dan persaingan. Apa pun usahanya, persaingan pasti ada. Karena itu, kita sebagai masyarakat dan pelaku UMKM harus mampu bersaing secara sehat. Pemerintah perlu mengedukasi masyarakat lebih serius soal persaingan, karena tidak sedikit persaingan berujung kegaduhan akibat pelakunya belum paham dan belum siap memasuki dunia usaha.</p>
+
+<div class="note rv"><h3>🧵 Siap Untung, Siap Rugi</h3><p>Siap masuk ke dunia usaha bukan hanya siap untuk sukses, tetapi juga siap untuk gagal dan siap menghadapi ketidakadilan yang terjadi di pasar.</p></div>
+
+<p class="rv">Mari bersama-sama kita ciptakan lingkungan kerja yang harmonis, adil, dan makmur, sebab setiap orang punya targetnya masing-masing. Warga dan pengrajin juga harus semakin <i>aware</i> terhadap perubahan zaman agar mode yang dibuat sesuai dengan permintaan pasar.</p>
+
+<h3 class="sub rv"><span>D</span>Potensi Perekonomian Kota Tasikmalaya</h3>
+
+<p class="rv">Nama Tasikmalaya yang sudah dikenal sebagai sentra pengrajin bordir hingga mendunia merupakan potensi besar di bidang ekonomi. Branding adalah poin penting dalam memperkenalkan apa yang kita tawarkan, dan branding yang kuat tentu dapat membantu usaha bordir Tasikmalaya semakin maju.</p>
+<p class="rv">Warga Tasikmalaya pun semakin mampu mengikuti perkembangan zaman. Meski sempat terpukul pandemi COVID-19, para pengusaha dan pengrajin bordir berhasil menyesuaikan diri dan bahkan meningkatkan penjualan. Ekonomi digital juga memberi pengaruh positif: pelaku industri kini lebih mudah menjual dan memasarkan produk secara digital. Pengrajin dapat memperkenalkan hasil bordirannya ke berbagai daerah di Indonesia melalui e-commerce dan platform lainnya, hingga berpeluang menjadi salah satu komoditas ekspor mode terbesar di Indonesia.</p>
+<p class="rv">Keunikan bordir tidak hanya menjadi tumpuan utama perekonomian Tasikmalaya, tetapi juga sudah menjadi bagian dari budaya kehidupan sehari-hari warganya. Potensi besar ini didukung pemerintah setempat melalui pembiayaan, pinjaman dana, hingga workshop pelatihan di berbagai bidang yang mendorong kemajuan ekonomi kota.</p>
 </div>
 </div></div></article>
 
