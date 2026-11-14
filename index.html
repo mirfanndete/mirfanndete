@@ -469,17 +469,22 @@ function count(el){const to=+el.dataset.to,d=+el.dataset.dec;let t0;
 $$('.count').forEach(el=>{el.textContent=(0).toFixed(+el.dataset.dec);setTimeout(()=>count(el),1700)});
 
 /* tombol like */
-const LIKE_API='https://api.counterapi.dev/v1/dete-portfolio-irfan/likes';
+const LIKE_NS='dete-portfolio-irfan',LIKE_KEY='likes',LIKE_API='https://abacus.jasoncameron.dev';
 const lb=$('#likeBtn'),ln=$('#likeNum'),lt=$('#likeTxt');
-let liked=false;try{liked=localStorage.getItem('liked')==='1'}catch(e){}
-function paintLike(){lb.classList.toggle('on',liked);lb.setAttribute('aria-pressed',liked);lt.textContent=liked?'Terima kasih! ❤':'Suka gaya website ini? Beri like'}
+let liked=false;try{liked=localStorage.getItem('liked-v2')==='1'}catch(e){}
+function paintLike(msg){lb.classList.toggle('on',liked);lb.setAttribute('aria-pressed',liked);lt.textContent=msg||(liked?'Terima kasih! ❤':'Suka gaya website ini? Beri like')}
 paintLike();
-fetch(LIKE_API).then(r=>r.json()).then(d=>{ln.textContent=d.count||0}).catch(()=>{});
-lb.addEventListener('click',()=>{
+fetch(`${LIKE_API}/get/${LIKE_NS}/${LIKE_KEY}`).then(r=>r.ok?r.json():{value:0}).then(d=>{ln.textContent=d.value||0}).catch(()=>{});
+lb.addEventListener('click',async()=>{
   if(liked)return;
-  liked=true;try{localStorage.setItem('liked','1')}catch(e){}
-  ln.textContent=(+ln.textContent||0)+1;paintLike();
-  fetch(LIKE_API+'/up').catch(()=>{});
+  try{
+    const r=await fetch(`${LIKE_API}/hit/${LIKE_NS}/${LIKE_KEY}`);
+    if(!r.ok)throw 0;
+    const d=await r.json();
+    ln.textContent=d.value;liked=true;
+    try{localStorage.setItem('liked-v2','1')}catch(e){}
+    paintLike();
+  }catch(e){paintLike('Gagal menyimpan, coba lagi nanti')}
 });
 
 /* muncul saat di-scroll */
