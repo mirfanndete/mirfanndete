@@ -221,6 +221,20 @@ transition:border-color .3s,background .3s}
 .contact .sub{max-width:440px;font-size:1.05rem}
 .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
 .ig:hover{background:#c13584;border-color:#c13584}.wa:hover{background:#25d366;border-color:#25d366;color:var(--ink)}
+
+/* like */
+.likebox{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.likebtn{display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border-radius:999px;border:1px solid var(--brass);background:transparent;color:var(--brass);font:600 .95rem var(--body);cursor:pointer;transition:background .3s,color .3s,transform .25s var(--ease)}
+.likebtn:hover{background:rgba(224,176,64,.15)}
+.likebtn:active{transform:scale(.95)}
+.likebtn svg{transition:transform .4s var(--spring)}
+.likebtn.on{background:var(--brass);color:var(--ink);cursor:default}
+.likebtn.on svg{animation:beat .6s var(--spring)}
+.likebtn:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.likecount{color:var(--mute);font-size:.9rem}
+.likecount b{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--bone);margin-right:4px}
+@keyframes beat{0%{transform:scale(1)}40%{transform:scale(1.7) rotate(-10deg)}100%{transform:scale(1)}}
+
 footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mute);font-size:.82rem}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
@@ -329,7 +343,7 @@ section.s{padding:80px 0}.scroll,#glow{display:none}
 <div class="tl" id="tl">
 <article class="item"><div><h3>Broadcaster Academy Batch 6</h3><p class="role">RRI Bandar Lampung</p></div><p>Konten Media Baru (KMB). Menjelajahi broadcasting, konten digital, media sosial, dan creative storytelling.</p></article>
 <article class="item"><div><h3>Gebyar Pelajar Lampung</h3><p class="role">Staff PSDM (Internal)</p></div><p>Belajar tentang kerja tim, manajemen event, pengembangan internal, dan membangun relasi dengan banyak orang.</p></article>
-<article class="item"><div><h3>HMPS KPI</h3><p class="role">Himpunan Mahasiswa Program Studi</p></div><p>Bertumbuh lewat kolaborasi, tanggung jawab, kepemimpinan, dan kegiatan kemahasiswaan.</p></article>
+<article class="item"><div><h3>HMJ KPI</h3><p class="role">Himpunan Mahasiswa Jurusan</p></div><p>Bertumbuh lewat kolaborasi, tanggung jawab, kepemimpinan, dan kegiatan kemahasiswaan.</p></article>
 </div>
 
 <a class="cvbanner rv" href="https://drive.google.com/file/d/1dplivweG8RCJrKEBf_feFnEMreW5MFNb/view?usp=sharing" target="_blank" rel="noopener">
@@ -382,7 +396,16 @@ section.s{padding:80px 0}.scroll,#glow{display:none}
 <a class="btn mag" href="https://drive.google.com/file/d/18rOnjMXx2hr503FyyGHG0jC7kh34XUhq/view?usp=sharing" target="_blank" rel="noopener">Download CV ↓</a>
 <a class="btn ig mag" href="https://instagram.com/mirfanndete" target="_blank" rel="noopener">Instagram</a>
 <a class="btn wa mag" href="https://wa.me/6285925775266" target="_blank" rel="noopener">WhatsApp</a>
-</div></div></section>
+</div>
+
+<div class="likebox rv">
+  <button class="likebtn" id="likeBtn" type="button" aria-pressed="false">
+    <svg class="heart" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 2.9 5 6.3 5c2 0 3.5 1.1 4.3 2.4h2.8C14.2 6.1 15.7 5 17.7 5c3.4 0 5.3 3.6 3.9 6.8C19.5 16.4 12 21 12 21z"/></svg>
+    <span id="likeTxt">Suka gaya website ini? Beri like</span>
+  </button>
+  <span class="likecount"><b id="likeNum">0</b> orang suka</span>
+</div>
+</div></section>
 </main>
 
 <footer><div class="wrap"><span>DT. / Dete — Writer, Communicator, Storyteller</span><span>© 2026 Muhammad Irfan Dwitama. All rights reserved.</span></div></footer>
@@ -444,6 +467,20 @@ $$('[data-split]').forEach(el=>{let n=0;
 function count(el){const to=+el.dataset.to,d=+el.dataset.dec;let t0;
   (function step(t){t0??=t;const k=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-k,3);el.textContent=(to*e).toFixed(d);if(k<1)requestAnimationFrame(step)})(performance.now())}
 $$('.count').forEach(el=>{el.textContent=(0).toFixed(+el.dataset.dec);setTimeout(()=>count(el),1700)});
+
+/* tombol like */
+const LIKE_API='https://api.counterapi.dev/v1/dete-portfolio-irfan/likes';
+const lb=$('#likeBtn'),ln=$('#likeNum'),lt=$('#likeTxt');
+let liked=false;try{liked=localStorage.getItem('liked')==='1'}catch(e){}
+function paintLike(){lb.classList.toggle('on',liked);lb.setAttribute('aria-pressed',liked);lt.textContent=liked?'Terima kasih! ❤':'Suka gaya website ini? Beri like'}
+paintLike();
+fetch(LIKE_API).then(r=>r.json()).then(d=>{ln.textContent=d.count||0}).catch(()=>{});
+lb.addEventListener('click',()=>{
+  if(liked)return;
+  liked=true;try{localStorage.setItem('liked','1')}catch(e){}
+  ln.textContent=(+ln.textContent||0)+1;paintLike();
+  fetch(LIKE_API+'/up').catch(()=>{});
+});
 
 /* muncul saat di-scroll */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
